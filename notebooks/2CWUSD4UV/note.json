@@ -1,0 +1,219 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n## Spark Streaming\n\n-   Scalable, *high-throughput*, fault-tolerant streaming processing\n\n\u003cimg src\u003d\"http://localhost:8085/figs/streaming-flow.png\" alt\u003d\"Spark Streaming flow\" style\u003d\"width: 800px;\"/\u003e\n\n-   Input from multiple sources: Kafka, Flume, Twitter, ZeroMQ, Kinesis or sockets TCP\n\n### Spark Streaming architecture\n\nMain abstraction: DStream (`discretized stream`).\n\n-   Represents a continuous data stream\n\n![dstreams](http://localhost:8080/assets/images/dstreams.png)\n\n*Micro-batch* architecture\n\n-   Received data are grouped into batches\n-   Batches are created at regular intervals (batch interval)\n-   Every batch has the form of an RDD, which can be processed by Spark\n-   In addition, stateful transformations can be performed by\n    -   Window operations\n    -   Tracking of each key state\n\nSpark Streaming page: \u003chttps://spark.apache.org/streaming/\u003e\nMain documentation (last version): \u003chttps://spark.apache.org/docs/latest/streaming-programming-guide.html\u003e",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 17:03:35.005",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eSpark Streaming\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003eScalable, \u003cem\u003ehigh-throughput\u003c/em\u003e, fault-tolerant streaming processing\u003c/li\u003e\n\u003c/ul\u003e\n\u003cimg src\u003d\"http://localhost:8085/figs/streaming-flow.png\" alt\u003d\"Spark Streaming flow\" style\u003d\"width: 800px;\"/\u003e\n\u003cul\u003e\n  \u003cli\u003eInput from multiple sources: Kafka, Flume, Twitter, ZeroMQ, Kinesis or sockets TCP\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eSpark Streaming architecture\u003c/h3\u003e\n\u003cp\u003eMain abstraction: DStream (\u003ccode\u003ediscretized stream\u003c/code\u003e).\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eRepresents a continuous data stream\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://localhost:8080/assets/images/dstreams.png\" alt\u003d\"dstreams\" /\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eMicro-batch\u003c/em\u003e architecture\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eReceived data are grouped into batches\u003c/li\u003e\n  \u003cli\u003eBatches are created at regular intervals (batch interval)\u003c/li\u003e\n  \u003cli\u003eEvery batch has the form of an RDD, which can be processed by Spark\u003c/li\u003e\n  \u003cli\u003eIn addition, stateful transformations can be performed by\n    \u003cul\u003e\n      \u003cli\u003eWindow operations\u003c/li\u003e\n      \u003cli\u003eTracking of each key state\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eSpark Streaming page: \u003ca href\u003d\"https://spark.apache.org/streaming/\"\u003ehttps://spark.apache.org/streaming/\u003c/a\u003e\u003cbr/\u003eMain documentation (last version): \u003ca href\u003d\"https://spark.apache.org/docs/latest/streaming-programming-guide.html\"\u003ehttps://spark.apache.org/docs/latest/streaming-programming-guide.html\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256483942_879412034",
+      "id": "20170331-180408_986053486",
+      "dateCreated": "2017-10-17 16:08:03.000",
+      "dateStarted": "2018-10-30 17:03:33.770",
+      "dateFinished": "2018-10-30 17:03:33.792",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Spark Streaming: stateless online WordCount example\n\nTo run the example:\n\n   1. In a terminal, access the Docker container with `docker exec -ti container_id /bin/bash` (run `docker ps` to know the container_id)\n   2. Once in the container\u0027s terminal, use netcat as a server in the port 9999\n\n    `$ nc -lk 9999`\n\n   2. Run here the PySpark code that you will find below\n\n   3. Write text lines in netcat\u0027s terminal. They will be picked up and processed by the script\n    - Write repeated words, to make sure they are counted right",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 13:49:03.969",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eSpark Streaming: stateless online WordCount example\u003c/h3\u003e\n\u003cp\u003eTo run the example:\u003c/p\u003e\n\u003col\u003e\n  \u003cli\u003eIn a terminal, access the Docker container with \u003ccode\u003edocker exec -ti container_id /bin/bash\u003c/code\u003e (run \u003ccode\u003edocker ps\u003c/code\u003e to know the container_id)\u003c/li\u003e\n  \u003cli\u003eOnce in the container\u0026rsquo;s terminal, use netcat as a server in the port 9999\n    \u003cp\u003e\u003ccode\u003e$ nc -lk 9999\u003c/code\u003e\u003c/p\u003e\n  \u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eRun here the PySpark code that you will find below\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n    \u003cp\u003eWrite text lines in netcat\u0026rsquo;s terminal. They will be picked up and processed by the script\u003c/p\u003e\n    \u003cul\u003e\n      \u003cli\u003eWrite repeated words, to make sure they are counted right\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256483943_879027285",
+      "id": "20170726-153125_653257795",
+      "dateCreated": "2017-10-17 16:08:03.000",
+      "dateStarted": "2018-10-04 13:49:02.551",
+      "dateFinished": "2018-10-04 13:49:02.860",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.streaming import StreamingContext\nfrom operator import add\n\nsc.setLogLevel(\"WARN\")\n\n# Streaming context with a batch interval of 5 sec.\nssc \u003d StreamingContext(sc, 5)\n\n# DStream that connects to localhost:9999\nlines \u003d ssc.socketTextStream(\"localhost\", 9999)\n\n# Run a WordCount\ncounts \u003d lines.flatMap(lambda line: line.split(\" \"))\\\n              .map(lambda word: (word, 1))\\\n              .reduceByKey(add)\n              \ncounts.pprint()\n\nssc.start() # Start the computation\nssc.awaitTerminationOrTimeout(60) # Wait for it to finish (stops in 60 seconds)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 13:52:17.261",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256483944_877103541",
+      "id": "20170726-123850_403078264",
+      "dateCreated": "2017-10-17 16:08:03.000",
+      "dateStarted": "2018-10-04 13:52:17.468",
+      "dateFinished": "2018-10-04 13:53:23.216",
+      "status": "ABORT",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Spark Streaming: stateful online WordCount example\n\nRepeat the previous steps running the following code\n\n - Check that the number of words is accumulated between accesses",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 17:03:59.040",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eSpark Streaming: stateful online WordCount example\u003c/h3\u003e\n\u003cp\u003eRepeat the previous steps running the following code\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eCheck that the number of words is accumulated between accesses\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256483947_877488290",
+      "id": "20170726-124258_1594244715",
+      "dateCreated": "2017-10-17 16:08:03.000",
+      "dateStarted": "2018-10-30 17:03:58.185",
+      "dateFinished": "2018-10-30 17:03:58.195",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.streaming import StreamingContext\nfrom operator import add\n\nsc.setLogLevel(\"WARN\")\n\n# Streaming context with a batch interval of 5 sec.\nssc \u003d StreamingContext(sc, 5)\n\n# DStream that connects to localhost:9999\nlines \u003d ssc.socketTextStream(\"localhost\", 9999)\n\nssc.checkpoint(\"/tmp/cpdir\") # Enables checkpoint\n\ndef updateFunc(new_values, last_sum):\n    return sum(new_values) + (last_sum or 0)\n\ncounts \u003d lines.flatMap(lambda line: line.split(\" \"))\\\n              .map(lambda word: (word, 1))\\\n              .updateStateByKey(updateFunc)\n\ncounts.pprint()\n\nssc.start() # Start the computation\nssc.awaitTerminationOrTimeout(60) # Wait for it to finish (stops in 60 seconds)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 13:58:51.984",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Py4JJavaError: An error occurred while calling o5473.start.\n: java.lang.IllegalStateException: Only one StreamingContext may be started in this JVM. Currently running StreamingContext was started atorg.apache.spark.streaming.api.java.JavaStreamingContext.start(JavaStreamingContext.scala:624)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:498)\npy4j.reflection.MethodInvoker.invoke(MethodInvoker.java:231)\npy4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:381)\npy4j.Gateway.invoke(Gateway.java:259)\npy4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:133)\npy4j.commands.CallCommand.execute(CallCommand.java:79)\npy4j.GatewayConnection.run(GatewayConnection.java:209)\njava.lang.Thread.run(Thread.java:748)\n\tat org.apache.spark.streaming.StreamingContext$.org$apache$spark$streaming$StreamingContext$$assertNoOtherContextIsActive(StreamingContext.scala:762)\n\tat org.apache.spark.streaming.StreamingContext.start(StreamingContext.scala:599)\n\tat org.apache.spark.streaming.api.java.JavaStreamingContext.start(JavaStreamingContext.scala:624)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:231)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:381)\n\tat py4j.Gateway.invoke(Gateway.java:259)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:133)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:209)\n\tat java.lang.Thread.run(Thread.java:748)\n\n(\u003cclass \u0027py4j.protocol.Py4JJavaError\u0027\u003e, Py4JJavaError(u\u0027An error occurred while calling o5473.start.\\n\u0027, JavaObject id\u003do5483), \u003ctraceback object at 0x7f102eb22908\u003e)"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256483949_875179796",
+      "id": "20170726-154030_861974889",
+      "dateCreated": "2017-10-17 16:08:03.000",
+      "dateStarted": "2018-10-04 13:58:52.115",
+      "dateFinished": "2018-10-04 13:58:52.515",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "dateUpdated": "2017-10-17 16:08:03.000",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256483952_886337515",
+      "id": "20170726-154218_2042879683",
+      "dateCreated": "2017-10-17 16:08:03.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/11 - Spark Streaming",
+  "id": "2CWUSD4UV",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

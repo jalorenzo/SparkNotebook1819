@@ -1,0 +1,386 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n## GraphX: Graph processing\n\nParallel graph programming using Spark\n\n- Main abstraction: [*Graph*](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.graphx.Graph)\n    -   Directed multigraph with properties assigned to vertices and edges \n    -   It is an extension of the RDDs\n- It includes graph constructors, basic operators ( *reverse*, *subgraph*…) and graph algorithms ( *PageRank*, *Triangle Counting*…)\n- Currently not availabe on PySpark (Scala only)\n- In Python we can use [*GraphFrames*](http://graphframes.github.io/quick-start.html) which wraps GraphX algorithms under the DataFrames API, providing a Python interface.\n\nDocumentation: [spark.apache.org/docs/latest/graphx-programming-guide.html](http://spark.apache.org/docs/latest/graphx-programming-guide.html)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 17:06:54.433",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eGraphX: Graph processing\u003c/h2\u003e\n\u003cp\u003eParallel graph programming using Spark\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eMain abstraction: \u003ca href\u003d\"http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.graphx.Graph\"\u003e\u003cem\u003eGraph\u003c/em\u003e\u003c/a\u003e\n    \u003cul\u003e\n      \u003cli\u003eDirected multigraph with properties assigned to vertices and edges\u003c/li\u003e\n      \u003cli\u003eIt is an extension of the RDDs\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003eIt includes graph constructors, basic operators ( \u003cem\u003ereverse\u003c/em\u003e, \u003cem\u003esubgraph\u003c/em\u003e…) and graph algorithms ( \u003cem\u003ePageRank\u003c/em\u003e, \u003cem\u003eTriangle Counting\u003c/em\u003e…)\u003c/li\u003e\n  \u003cli\u003eCurrently not availabe on PySpark (Scala only)\u003c/li\u003e\n  \u003cli\u003eIn Python we can use \u003ca href\u003d\"http://graphframes.github.io/quick-start.html\"\u003e\u003cem\u003eGraphFrames\u003c/em\u003e\u003c/a\u003e which wraps GraphX algorithms under the DataFrames API, providing a Python interface.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eDocumentation: \u003ca href\u003d\"http://spark.apache.org/docs/latest/graphx-programming-guide.html\"\u003espark.apache.org/docs/latest/graphx-programming-guide.html\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256538752_-1178381614",
+      "id": "20170331-180728_888600905",
+      "dateCreated": "2017-10-17 16:08:58.000",
+      "dateStarted": "2018-10-30 17:06:53.482",
+      "dateFinished": "2018-10-30 17:06:53.509",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Graphs in GraphX\n\u003cimg src\u003d\"http://localhost:8080/assets/images/grapxgraph.png\" alt\u003d\"Graph in GraphX\" style\u003d\"width: 600px;\"/\u003e\n(Source: M.S. Malak, R. East \"Spark GraphX in action\", Manning, 2016)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 17:07:23.451",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eGraphs in GraphX\u003c/h3\u003e\n\u003cimg src\u003d\"http://localhost:8080/assets/images/grapxgraph.png\" alt\u003d\"Graph in GraphX\" style\u003d\"width: 600px;\"/\u003e\n\u003cp\u003e(Source: M.S. Malak, R. East \u0026ldquo;Spark GraphX in action\u0026rdquo;, Manning, 2016)\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256538753_-1178766363",
+      "id": "20170726-183141_1590092110",
+      "dateCreated": "2017-10-17 16:08:58.000",
+      "dateStarted": "2018-10-30 17:07:22.190",
+      "dateFinished": "2018-10-30 17:07:22.202",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nExample of a simple graph\n\u003cimg src\u003d\"http://localhost:8080/assets/images/simpsonsgraph.png\" alt\u003d\"Simpson\u0027s graph\" style\u003d\"width: 600px;\"/\u003e\n(Fuente: P. Zecević, M. Bonaći \"Spark in action\", Manning, 2017)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 17:08:07.142",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eExample of a simple graph\u003cbr/\u003e\u003cimg src\u003d\"http://localhost:8080/assets/images/simpsonsgraph.png\" alt\u003d\"Simpson\u0027s graph\" style\u003d\"width: 600px;\"/\u003e\u003cbr/\u003e(Fuente: P. Zecević, M. Bonaći \u0026ldquo;Spark in action\u0026rdquo;, Manning, 2017)\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256538753_-1178766363",
+      "id": "20170726-183607_1221581747",
+      "dateCreated": "2017-10-17 16:08:58.000",
+      "dateStarted": "2018-10-30 17:08:07.149",
+      "dateFinished": "2018-10-30 17:08:07.478",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.graphx._\ncase class Person(name:String, age:Int)\nval vertices \u003d sc.parallelize(Array((1L, Person(\"Homer\", 39)),\n                                    (2L, Person(\"Marge\", 39)),\n                                    (3L, Person(\"Bart\", 12)),\n                                    (4L, Person(\"Milhouse\", 12))))\n                                    \nval edges \u003d sc.parallelize(Array(Edge(4L, 3L, \"friend\"),\n                                 Edge(3L, 1L, \"father\"),\n                                 Edge(3L, 2L, \"mother\"),\n                                 Edge(1L, 2L, \"marriedTo\")))\n                                 \nval graph \u003d Graph(vertices, edges)\n\ngraph.vertices.count()\ngraph.edges.count()",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:55:50.501",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256538754_-1177612116",
+      "id": "20170726-155609_1642557161",
+      "dateCreated": "2017-10-17 16:08:58.000",
+      "dateStarted": "2018-10-04 14:55:50.523",
+      "dateFinished": "2018-10-04 14:55:53.803",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval rdd \u003d sc.textFile(\"/data/cite75_99.txt\").filter(l \u003d\u003e !l.startsWith(\"\\\"CITING\\\"\")).map(l \u003d\u003e {\n                val spl \u003d l.split(\",\");\n                (spl(0).toLong, spl(1).toLong)})\nprintln(rdd.count())\n\nval filtered \u003d rdd.filter(p \u003d\u003e p._1 \u003e\u003d 3000000 \u0026\u0026 p._1 \u003c 4000000)\nprintln(filtered.count()) ",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:56:29.204",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256538754_-1177612116",
+      "id": "20170726-160230_323471961",
+      "dateCreated": "2017-10-17 16:08:58.000",
+      "dateStarted": "2018-10-04 14:56:29.244",
+      "dateFinished": "2018-10-04 14:56:44.525",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval citeGraph \u003d Graph.fromEdgeTuples(filtered, 0)\n\nprintln(\"Number of vertices \u003d \"+citeGraph.numVertices)\nprintln(\"Number of edges \u003d \"+citeGraph.numEdges)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:57:24.571",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256538754_-1177612116",
+      "id": "20170727-152614_1046212621",
+      "dateCreated": "2017-10-17 16:08:58.000",
+      "dateStarted": "2018-10-04 14:57:24.590",
+      "dateFinished": "2018-10-04 14:57:34.469",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval rank \u003d citeGraph.pageRank(0.1)\n\nval order \u003d new Ordering[Tuple2[VertexId, Double]] {\n    def compare(x:Tuple2[VertexId, Double], y:Tuple2[VertexId, Double]):Int \u003d\n                x._2.compareTo(y._2)\n}\n\nval top10 \u003d rank.vertices.top(10)(order)\n\nprintln(\"Patent with the highest rank \u003d \"+top10(0)._1+\" (rank \u003d \"+top10(0)._2+\")\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:59:39.903",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256538754_-1177612116",
+      "id": "20170727-155618_661977365",
+      "dateCreated": "2017-10-17 16:08:58.000",
+      "dateStarted": "2018-10-04 14:59:39.930",
+      "dateFinished": "2018-10-04 14:59:50.968",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Graphs using pyspark and GraphFrames",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 17:09:47.136",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": false,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eGraphs using pyspark and GraphFrames\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256538754_-1177612116",
+      "id": "20170727-152652_438899342",
+      "dateCreated": "2017-10-17 16:08:58.000",
+      "dateStarted": "2018-10-30 17:09:45.572",
+      "dateFinished": "2018-10-30 17:09:45.591",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# The following example shows how to create a GraphFrame, query it, and run the PageRank algorithm.\n# Source: http://graphframes.github.io/quick-start.html\n\n# Create a Vertex DataFrame with unique ID column \"id\"\nv \u003d sqlContext.createDataFrame([\n  (\"a\", \"Alice\", 34),\n  (\"b\", \"Bob\", 36),\n  (\"c\", \"Charlie\", 30),\n], [\"id\", \"name\", \"age\"])\n# Create an Edge DataFrame with \"src\" and \"dst\" columns\ne \u003d sqlContext.createDataFrame([\n  (\"a\", \"b\", \"friend\"),\n  (\"b\", \"c\", \"follow\"),\n  (\"c\", \"b\", \"follow\"),\n], [\"src\", \"dst\", \"relationship\"])\n# Create a GraphFrame\nfrom graphframes import *\ng \u003d GraphFrame(v, e)\n\n# Query: Get in-degree of each vertex.\ng.inDegrees.show()\n\n# Query: Count the number of \"follow\" connections in the graph.\ng.edges.filter(\"relationship \u003d \u0027follow\u0027\").count()\n\n# Run PageRank algorithm, and show results.\nresults \u003d g.pageRank(resetProbability\u003d0.01, maxIter\u003d20)\nresults.vertices.select(\"id\", \"pagerank\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 17:10:05.404",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1540919380350_2134849800",
+      "id": "20181030-170940_1783312688",
+      "dateCreated": "2018-10-30 17:09:40.350",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## ASSIGNMENT 1:\n\nA long time ago in a galaxy far, far away, the characters of the Star Wars franchise interacted with each other in an endless series of films. An ancient Jedi order, called the *Data Guardians of the Galaxy* (not affiliated to Marvel\u0027s homonym :) registered all those interactions and saved them on a digital file so that they could be studied by the forthcoming generations. This file was originally called (guess it) `sw.txt`, and you will find it in the `/data` directory. \n\nUsing pySpark, perform the following operations and answer the following questions:\n\n1. Load the `/data/sw.txt` file\n2. Using this information, create a graph of interactions between the Star Wars characters.\n3. How many different characters are there?\n4. How many interactions are there?\n5. Who is the central character in Star Wars (the one who interacts in most scenes)? \n6. Who is the character with the highest \u0027rank\u0027 in Star Wars (use the PageRank algorithm)?",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-31 08:59:30.115",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": false,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eASSIGNMENT 1:\u003c/h2\u003e\n\u003cp\u003eA long time ago in a galaxy far, far away, the characters of the Star Wars franchise interacted with each other in an endless series of films. An ancient Jedi order, called the \u003cem\u003eData Guardians of the Galaxy\u003c/em\u003e (not affiliated to Marvel\u0026rsquo;s homonym :) registered all those interactions and saved them on a digital file so that they could be studied by the forthcoming generations. This file was originally called (guess it) \u003ccode\u003esw.txt\u003c/code\u003e, and you will find it in the \u003ccode\u003e/data\u003c/code\u003e directory. \u003c/p\u003e\n\u003cp\u003eUsing pySpark, perform the following operations and answer the following questions:\u003c/p\u003e\n\u003col\u003e\n  \u003cli\u003eLoad the \u003ccode\u003e/data/sw.txt\u003c/code\u003e file\u003c/li\u003e\n  \u003cli\u003eUsing this information, create a graph of interactions between the Star Wars characters.\u003c/li\u003e\n  \u003cli\u003eHow many different characters are there?\u003c/li\u003e\n  \u003cli\u003eHow many interactions are there?\u003c/li\u003e\n  \u003cli\u003eWho is the central character in Star Wars (the one who interacts in most scenes)?\u003c/li\u003e\n  \u003cli\u003eWho is the character with the highest \u0026lsquo;rank\u0026rsquo; in Star Wars (use the PageRank algorithm)?\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1540919419910_125312853",
+      "id": "20181030-171019_1350122718",
+      "dateCreated": "2018-10-30 17:10:19.910",
+      "dateStarted": "2018-10-31 08:59:25.737",
+      "dateFinished": "2018-10-31 08:59:25.851",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 17:10:09.654",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1540919409651_-385527353",
+      "id": "20181030-171009_388252392",
+      "dateCreated": "2018-10-30 17:10:09.651",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/13 - Spark GraphX",
+  "id": "2CV9MN9EE",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

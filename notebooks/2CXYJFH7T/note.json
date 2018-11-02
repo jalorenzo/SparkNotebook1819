@@ -1,0 +1,209 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n## Spark ML: Machine Learning Library\n\nLibrary of ML parallel algorithms for massive data\n\n-   Machine learning classic algorithms: classification, regression, clustering, collaborative filtering\n-   Other algorithms: feature extraction, transformation, dimensionality reduction, and selection\n-   Tools to build, evaluate and adjust ML pipelines\n-   Other tools: linear algebra, statistics, data processing, etc.\n\n\nTwo packages:\n\n-   spark.mllib: Original API original, based on RDDs\n-   spark.ml: High-level API, based on DataFrames\n\nDocumentation:\n[spark.apache.org/docs/latest/mllib-guide.html](http://spark.apache.org/docs/latest/mllib-guide.html)\nand\n[spark.apache.org/docs/latest/ml-guide.html](http://spark.apache.org/docs/latest/ml-guide.html)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:05:48.637",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eSpark ML: Machine Learning Library\u003c/h2\u003e\n\u003cp\u003eLibrary of ML parallel algorithms for massive data\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eMachine learning classic algorithms: classification, regression, clustering, collaborative filtering\u003c/li\u003e\n  \u003cli\u003eOther algorithms: feature extraction, transformation, dimensionality reduction, and selection\u003c/li\u003e\n  \u003cli\u003eTools to build, evaluate and adjust ML pipelines\u003c/li\u003e\n  \u003cli\u003eOther tools: linear algebra, statistics, data processing, etc.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTwo packages:\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003espark.mllib: Original API original, based on RDDs\u003c/li\u003e\n  \u003cli\u003espark.ml: High-level API, based on DataFrames\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eDocumentation:\u003cbr/\u003e\u003ca href\u003d\"http://spark.apache.org/docs/latest/mllib-guide.html\"\u003espark.apache.org/docs/latest/mllib-guide.html\u003c/a\u003e\u003cbr/\u003eand\u003cbr/\u003e\u003ca href\u003d\"http://spark.apache.org/docs/latest/ml-guide.html\"\u003espark.apache.org/docs/latest/ml-guide.html\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256507160_-831920425",
+      "id": "20170331-180617_750285813",
+      "dateCreated": "2017-10-17 16:08:27.000",
+      "dateStarted": "2018-10-04 14:05:45.348",
+      "dateFinished": "2018-10-04 14:05:45.628",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Example\n\nUse the clustering [KMeans](http://spark.apache.org/docs/latest/mllib-clustering.html#k-means) algorithm to group data from vectors spread over two clusters.\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:06:46.517",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eExample\u003c/h4\u003e\n\u003cp\u003eUse the clustering \u003ca href\u003d\"http://spark.apache.org/docs/latest/mllib-clustering.html#k-means\"\u003eKMeans\u003c/a\u003e algorithm to group data from vectors spread over two clusters.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256507164_-833459421",
+      "id": "20170727-102127_29698974",
+      "dateCreated": "2017-10-17 16:08:27.000",
+      "dateStarted": "2018-10-04 14:06:45.245",
+      "dateFinished": "2018-10-04 14:06:45.279",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.mllib.clustering import KMeans, KMeansModel\nfrom pyspark.mllib.linalg import SparseVector\nimport numpy as np\n\n# Define an array of 4 sparse vectors, 3 elements each \nsparse_data \u003d [\n     SparseVector(3, {1: 1.2}),\n     SparseVector(3, {1: 1.1}),\n     SparseVector(3, {0: 0.9, 2: 1.0}),\n     SparseVector(3, {0: 1.0, 2: 1.1})\n ]\n\nfor i in range(4):\n    print(sparse_data[i].toArray())\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:10:37.331",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256507164_-833459421",
+      "id": "20170726-155013_700199979",
+      "dateCreated": "2017-10-17 16:08:27.000",
+      "dateStarted": "2018-10-04 14:10:37.359",
+      "dateFinished": "2018-10-04 14:10:37.504",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Build the model (regroup data in 2 clusters)\nmodel \u003d KMeans.train(sc.parallelize(sparse_data), \\\n                     2, initializationMode\u003d\"k-means||\",\\\n                     seed\u003d50, initializationSteps\u003d5, \\\n                     epsilon\u003d1e-4)\n\nprint(\"Cluster centers: {0}\".format(model.clusterCenters))\n\nfor i in range(4):\n    print(\"Cluster for the node {0} \u003d {1}\"\n           .format(i, model.predict(sparse_data[i])))\n\npoint \u003d SparseVector(3, {0: 0.9, 1:1.0, 2: 1.0})\nprint(\"\\nCluster for node {0} \u003d {1}\".format(point, model.predict(point)))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:13:39.844",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python"
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256507165_-833844169",
+      "id": "20170727-100647_204256141",
+      "dateCreated": "2017-10-17 16:08:27.000",
+      "dateStarted": "2018-10-04 14:13:39.883",
+      "dateFinished": "2018-10-04 14:13:41.024",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Save the model in a temporal directory\nimport os, tempfile\npath \u003d tempfile.mkdtemp()\nmodel.save(sc, path)\n\n# Load again the model\nsameModel \u003d KMeansModel.load(sc, path)\n\nfor i in range(4):\n    print(sameModel.predict(sparse_data[i]) \u003d\u003d model.predict(sparse_data[i]))\n\nprint(sameModel.predict(point) \u003d\u003d model.predict(point))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-04 14:14:27.909",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256507165_-833844169",
+      "id": "20170726-155222_438709283",
+      "dateCreated": "2017-10-17 16:08:27.000",
+      "dateStarted": "2018-10-04 14:14:27.938",
+      "dateFinished": "2018-10-04 14:14:36.045",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Deletes the temporal directory\nfrom shutil import rmtree\ntry:\n     rmtree(path)\nexcept OSError:\n     pass",
+      "dateUpdated": "2018-10-04 14:15:43.778",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256507165_-833844169",
+      "id": "20170726-155249_436785497",
+      "dateCreated": "2017-10-17 16:08:27.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/12 - Spark ML",
+  "id": "2CXYJFH7T",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,12 @@
+
+version:                "3"
+services:
+  zeppelin-notebook:
+      build:            zeppelin-notebook
+      volumes:
+        - ./notebooks:/zeppelin/notebook
+        - ./data:/data
+      ports:
+        - 8080:8080
+        - 4040:4040
+#      container_name:   bdf-zeppelin-spark-container

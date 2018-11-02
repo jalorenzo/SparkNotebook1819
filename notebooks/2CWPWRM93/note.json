@@ -1,0 +1,281 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md \n### Running a Spark program\n\n#### Command `spark-submit`\n\n-   Submits a Spark program (an application) to a cluster\n-   More specifically, it launches the driver program and invokes the main() method specified by the user\n\n-   Examples:\n```sh\n$ bin/spark-submit --master yarn --deploy-mode cluster \\  \n     --py-files anotherlib.zip,anotherfile.py \\  \n     --num-executors 10 --executor-cores 2 \\  \n     my-script.py script_options\n```\n\n#### `spark-submit` options\n\n-   `master`: cluster manager to use (options: `yarn`, `mesos://host:port`, `spark://host:port`, `local[n]`)\n\n-   `deploy-mode`: Two ways of deploying\n\n    -   `client`: runs the driver on the local node \n\n    -   `cluster`: runs the driver on a node of the cluster\n\n-   `class`: class to execute (Java or Scala)\n\n-   `name`: name of the application (it will be shown in the Spark web)\n\n-   `jars`: jar files to add to the classpath (Java o Scala)\n\n-   `py-files`: files to add to the PYTHONPATH (`.py`,`.zip`,`.egg`)\n\n-   `files`: data files for the applications \n\n-   `executor-memory`: total memory of each executor\n\n-   `driver-memory`: memory of the driver process\n\nFor more options: `spark-submit --help`",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-23 14:39:31.084",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eRunning a Spark program\u003c/h3\u003e\n\u003ch4\u003eCommand \u003ccode\u003espark-submit\u003c/code\u003e\u003c/h4\u003e\n\u003cul\u003e\n  \u003cli\u003eSubmits a Spark program (an application) to a cluster\u003c/li\u003e\n  \u003cli\u003eMore specifically, it launches the driver program and invokes the main() method specified by the user\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eExamples:\u003c/p\u003e\n  \u003cpre\u003e\u003ccode class\u003d\"sh\"\u003e$ bin/spark-submit --master yarn --deploy-mode cluster \\  \n --py-files anotherlib.zip,anotherfile.py \\  \n --num-executors 10 --executor-cores 2 \\  \n my-script.py script_options\n\u003c/code\u003e\u003c/pre\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\u003ccode\u003espark-submit\u003c/code\u003e options\u003c/h4\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003e\u003ccode\u003emaster\u003c/code\u003e: cluster manager to use (options: \u003ccode\u003eyarn\u003c/code\u003e, \u003ccode\u003emesos://host:port\u003c/code\u003e, \u003ccode\u003espark://host:port\u003c/code\u003e, \u003ccode\u003elocal[n]\u003c/code\u003e)\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n    \u003cp\u003e\u003ccode\u003edeploy-mode\u003c/code\u003e: Two ways of deploying\u003c/p\u003e\n    \u003cul\u003e\n      \u003cli\u003e\n      \u003cp\u003e\u003ccode\u003eclient\u003c/code\u003e: runs the driver on the local node\u003c/p\u003e\u003c/li\u003e\n      \u003cli\u003e\n      \u003cp\u003e\u003ccode\u003ecluster\u003c/code\u003e: runs the driver on a node of the cluster\u003c/p\u003e\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003e\u003ccode\u003eclass\u003c/code\u003e: class to execute (Java or Scala)\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003e\u003ccode\u003ename\u003c/code\u003e: name of the application (it will be shown in the Spark web)\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003e\u003ccode\u003ejars\u003c/code\u003e: jar files to add to the classpath (Java o Scala)\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003e\u003ccode\u003epy-files\u003c/code\u003e: files to add to the PYTHONPATH (\u003ccode\u003e.py\u003c/code\u003e,\u003ccode\u003e.zip\u003c/code\u003e,\u003ccode\u003e.egg\u003c/code\u003e)\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003e\u003ccode\u003efiles\u003c/code\u003e: data files for the applications \u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003e\u003ccode\u003eexecutor-memory\u003c/code\u003e: total memory of each executor\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003e\u003ccode\u003edriver-memory\u003c/code\u003e: memory of the driver process\u003c/p\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor more options: \u003ccode\u003espark-submit --help\u003c/code\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256444935_1393174409",
+      "id": "20170331-180337_378748956",
+      "dateCreated": "2017-10-17 16:07:24.000",
+      "dateStarted": "2018-10-23 14:39:23.947",
+      "dateFinished": "2018-10-23 14:39:27.369",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n/opt/spark/bin/spark-submit --help",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:34:07.491",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "fontSize": 9.0,
+        "tableHide": false,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Usage: spark-submit [options] \u003capp jar | python file\u003e [app arguments]\nUsage: spark-submit --kill [submission ID] --master [spark://...]\nUsage: spark-submit --status [submission ID] --master [spark://...]\n\nOptions:\n  --master MASTER_URL         spark://host:port, mesos://host:port, yarn, or local.\n  --deploy-mode DEPLOY_MODE   Whether to launch the driver program locally (\"client\") or\n                              on one of the worker machines inside the cluster (\"cluster\")\n                              (Default: client).\n  --class CLASS_NAME          Your application\u0027s main class (for Java / Scala apps).\n  --name NAME                 A name of your application.\n  --jars JARS                 Comma-separated list of local jars to include on the driver\n                              and executor classpaths.\n  --packages                  Comma-separated list of maven coordinates of jars to include\n                              on the driver and executor classpaths. Will search the local\n                              maven repo, then maven central and any additional remote\n                              repositories given by --repositories. The format for the\n                              coordinates should be groupId:artifactId:version.\n  --exclude-packages          Comma-separated list of groupId:artifactId, to exclude while\n                              resolving the dependencies provided in --packages to avoid\n                              dependency conflicts.\n  --repositories              Comma-separated list of additional remote repositories to\n                              search for the maven coordinates given with --packages.\n  --py-files PY_FILES         Comma-separated list of .zip, .egg, or .py files to place\n                              on the PYTHONPATH for Python apps.\n  --files FILES               Comma-separated list of files to be placed in the working\n                              directory of each executor.\n\n  --conf PROP\u003dVALUE           Arbitrary Spark configuration property.\n  --properties-file FILE      Path to a file from which to load extra properties. If not\n                              specified, this will look for conf/spark-defaults.conf.\n\n  --driver-memory MEM         Memory for driver (e.g. 1000M, 2G) (Default: 1024M).\n  --driver-java-options       Extra Java options to pass to the driver.\n  --driver-library-path       Extra library path entries to pass to the driver.\n  --driver-class-path         Extra class path entries to pass to the driver. Note that\n                              jars added with --jars are automatically included in the\n                              classpath.\n\n  --executor-memory MEM       Memory per executor (e.g. 1000M, 2G) (Default: 1G).\n\n  --proxy-user NAME           User to impersonate when submitting the application.\n\n  --help, -h                  Show this help message and exit\n  --verbose, -v               Print additional debug output\n  --version,                  Print the version of current Spark\n\n Spark standalone with cluster deploy mode only:\n  --driver-cores NUM          Cores for driver (Default: 1).\n\n Spark standalone or Mesos with cluster deploy mode only:\n  --supervise                 If given, restarts the driver on failure.\n  --kill SUBMISSION_ID        If given, kills the driver specified.\n  --status SUBMISSION_ID      If given, requests the status of the driver specified.\n\n Spark standalone and Mesos only:\n  --total-executor-cores NUM  Total cores for all executors.\n\n Spark standalone and YARN only:\n  --executor-cores NUM        Number of cores per executor. (Default: 1 in YARN mode,\n                              or all available cores on the worker in standalone mode)\n\n YARN-only:\n  --driver-cores NUM          Number of cores used by the driver, only in cluster mode\n                              (Default: 1).\n  --queue QUEUE_NAME          The YARN queue to submit to (Default: \"default\").\n  --num-executors NUM         Number of executors to launch (Default: 2).\n  --archives ARCHIVES         Comma separated list of archives to be extracted into the\n                              working directory of each executor.\n  --principal PRINCIPAL       Principal to be used to login to KDC, while running on\n                              secure HDFS.\n  --keytab KEYTAB             The full path to the file that contains the keytab for the\n                              principal specified above. This keytab will be copied to\n                              the node running the Application Master via the Secure\n                              Distributed Cache, for renewing the login tickets and the\n                              delegation tokens periodically.\n      \n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256444946_1401254136",
+      "id": "20170719-201624_1770395113",
+      "dateCreated": "2017-10-17 16:07:24.000",
+      "dateStarted": "2018-10-02 15:34:07.540",
+      "dateFinished": "2018-10-02 15:34:08.799",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\u003chr /\u003e\n![Client mode](http://localhost:8080/assets/images/client-mode.jpeg \"Client mode on YARN\")\n\n![Cluster mode](http://localhost:8080/assets/images/cluster-mode.jpeg \"Cluster mode on YARN\")\n\nSource: [Spark-on-YARN: Empower Spark Applications on Hadoop Cluster](https://www.slideshare.net/Hadoop_Summit/sparkonyarn-empower-spark-applications-on-hadoop-cluster)\n\u003chr /\u003e",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:47:43.503",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://localhost:8080/assets/images/client-mode.jpeg\" alt\u003d\"Client mode\" title\u003d\"Client mode on YARN\" /\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://localhost:8080/assets/images/cluster-mode.jpeg\" alt\u003d\"Cluster mode\" title\u003d\"Cluster mode on YARN\" /\u003e\u003c/p\u003e\n\u003cp\u003eSource: \u003ca href\u003d\"https://www.slideshare.net/Hadoop_Summit/sparkonyarn-empower-spark-applications-on-hadoop-cluster\"\u003eSpark-on-YARN: Empower Spark Applications on Hadoop Cluster\u003c/a\u003e\u003cbr/\u003e\u003chr /\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256444947_1400869387",
+      "id": "20170722-114953_1562581291",
+      "dateCreated": "2017-10-17 16:07:24.000",
+      "dateStarted": "2018-10-30 16:47:43.510",
+      "dateFinished": "2018-10-30 16:47:43.536",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Configuration parameters\n\nSeveral parameters that can be adjusted in runtime\n\n-   In the script\n```python\nfrom pyspark import SparkConf,SparkContext\nconf \u003d SparkConf()\nconf.set(\"spark.app.name\", \"My app\")\nconf.set(\"spark.master\", \"local[2]\") # Cluster manager local mode with 2 threads\nconf.set(\"spark.ui.port\", \"3600\")    # Port of the Spark web interface (by default: 4040)\nsc \u003d SparkContext(conf\u003dconf)\n```\n\n-   Using flags in the `spark-submit` command\n```sh\n$ bin/spark-submit --master local[2] --name \"My app\" \\  \n    --conf spark.ui.port\u003d3600 my-script.py\n```    \n    \n-   Using a properties file \n```sh\n$ cat config.conf\nspark.master     local[2] \nspark.app.name   \"My app\" \nspark.ui.port 3600\n$ bin/spark-submit --properties-file config.conf my-script.py\n```\n\nMore information: \u003chttp://spark.apache.org/docs/latest/configuration.html#spark-properties\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-03 12:48:44.671",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eConfiguration parameters\u003c/h3\u003e\n\u003cp\u003eSeveral parameters that can be adjusted in runtime\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003e\n  \u003cp\u003eIn the script\u003c/p\u003e\n  \u003cpre\u003e\u003ccode class\u003d\"python\"\u003efrom pyspark import SparkConf,SparkContext\nconf \u003d SparkConf()\nconf.set(\u0026quot;spark.app.name\u0026quot;, \u0026quot;My app\u0026quot;)\nconf.set(\u0026quot;spark.master\u0026quot;, \u0026quot;local[2]\u0026quot;) # Cluster manager local mode with 2 threads\nconf.set(\u0026quot;spark.ui.port\u0026quot;, \u0026quot;3600\u0026quot;)    # Port of the Spark web interface (by default: 4040)\nsc \u003d SparkContext(conf\u003dconf)\n\u003c/code\u003e\u003c/pre\u003e\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eUsing flags in the \u003ccode\u003espark-submit\u003c/code\u003e command\u003c/p\u003e\n  \u003cpre\u003e\u003ccode class\u003d\"sh\"\u003e$ bin/spark-submit --master local[2] --name \u0026quot;My app\u0026quot; \\  \n--conf spark.ui.port\u003d3600 my-script.py\n\u003c/code\u003e\u003c/pre\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eUsing a properties file \u003c/p\u003e\n  \u003cpre\u003e\u003ccode class\u003d\"sh\"\u003e$ cat config.conf\nspark.master     local[2] \nspark.app.name   \u0026quot;My app\u0026quot; \nspark.ui.port 3600\n$ bin/spark-submit --properties-file config.conf my-script.py\n\u003c/code\u003e\u003c/pre\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eMore information: \u003ca href\u003d\"http://spark.apache.org/docs/latest/configuration.html#spark-properties\"\u003ehttp://spark.apache.org/docs/latest/configuration.html#spark-properties\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256444947_1400869387",
+      "id": "20170719-201838_664647966",
+      "dateCreated": "2017-10-17 16:07:24.000",
+      "dateStarted": "2018-10-03 12:48:39.463",
+      "dateFinished": "2018-10-03 12:48:39.499",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Example: execution of a Python script",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-03 12:52:57.718",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eExample: execution of a Python script\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256444947_1400869387",
+      "id": "20170720-184451_1169230278",
+      "dateCreated": "2017-10-17 16:07:24.000",
+      "dateStarted": "2018-10-03 12:52:55.321",
+      "dateFinished": "2018-10-03 12:52:55.540",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n# Do NOT modify the following line\ncat \u003c\u003c EOF \u003e /tmp/myscript.py\nfrom pyspark import SparkConf, SparkContext\nfrom operator import add\n\ndef main():\n    conf \u003d SparkConf()\n    conf.set(\"spark.app.name\", \"My Python script\")\n\n    # Initialise the SparkContext\n    sc \u003d SparkContext(conf\u003dconf)\n    sc.setLogLevel(\"FATAL\")\n\n    rdd \u003d sc.parallelize(range(100000)).cache()\n    \n    rdd2 \u003d rdd.map(lambda x: (x, 2*x))\\\n              .map(lambda (x,y): (x-100, y**2))\\\n              .reduceByKey(lambda x,y: x+y)\\\n              .values()\n               \n    r \u003d rdd2.reduce(add)\n    \n    print(\"Final result \u003d {0}\".format(r))\n    \n    # Stop the SparkContext\n    sc.stop()\nif __name__ \u003d\u003d \"__main__\":\n    main()\nEOF",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-03 12:50:54.707",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "fontSize": 9.0,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256444948_1398945643",
+      "id": "20170720-184439_1635499957",
+      "dateCreated": "2017-10-17 16:07:24.000",
+      "dateStarted": "2018-10-03 12:50:54.853",
+      "dateFinished": "2018-10-03 12:50:54.912",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n/opt/spark/bin/spark-submit --master local[8] /tmp/myscript.py",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-03 12:50:58.858",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "fontSize": 9.0,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256444948_1398945643",
+      "id": "20170720-185117_83384344",
+      "dateCreated": "2017-10-17 16:07:24.000",
+      "dateStarted": "2018-10-03 12:50:58.975",
+      "dateFinished": "2018-10-03 12:51:11.649",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/08 - Running Spark on a cluster",
+  "id": "2CWPWRM93",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

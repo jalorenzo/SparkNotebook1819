@@ -1,0 +1,687 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n### RDD: Resilient Distributed Datasets\n\n-   Immutable distributed collection of objects that can be manipulated in parallel. \n\n-   A Spark program operates on RDDs:\n\n    -   RDDs creation\n\n    -   RDDs transformation (map, filter, etc.)\n\n    -   Actions on RDDs to obtain results\n\n-   Spark automatically distributes the data and parallelises the operations",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:16:05.547",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eRDD: Resilient Distributed Datasets\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003eImmutable distributed collection of objects that can be manipulated in parallel.\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n    \u003cp\u003eA Spark program operates on RDDs:\u003c/p\u003e\n    \u003cul\u003e\n      \u003cli\u003e\n      \u003cp\u003eRDDs creation\u003c/p\u003e\u003c/li\u003e\n      \u003cli\u003e\n      \u003cp\u003eRDDs transformation (map, filter, etc.)\u003c/p\u003e\u003c/li\u003e\n      \u003cli\u003e\n      \u003cp\u003eActions on RDDs to obtain results\u003c/p\u003e\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eSpark automatically distributes the data and parallelises the operations\u003c/p\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371244_789195257",
+      "id": "20170330-180357_1274162593",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-11-02 08:16:03.229",
+      "dateFinished": "2018-11-02 08:16:03.254",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### RDDs creation\n\nTwo ways:\n\n1 -   By distributing a collection of objects (e.g., a list or set) in their driver program",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:16:12.796",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eRDDs creation\u003c/h4\u003e\n\u003cp\u003eTwo ways:\u003c/p\u003e\n\u003cp\u003e1 - By distributing a collection of objects (e.g., a list or set) in their driver program\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371249_799583477",
+      "id": "20170330-180412_2137074523",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-11-02 08:16:10.847",
+      "dateFinished": "2018-11-02 08:16:10.886",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Example in PySpark\n#rdd1 \u003d sc.parallelize([1,2,3])\nsc.parallelize([2, 3, 4, 5, 6]).cache().take(2)\n\nimport numpy as np\nrdd2\u003dsc.parallelize(np.array(range(100)))\nprint(rdd2.glom().collect())\nprint(rdd2.getNumPartitions())",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-12 14:06:32.349",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 117.45,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371249_799583477",
+      "id": "20170330-180431_2128622947",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-10-12 14:06:32.556",
+      "dateFinished": "2018-10-12 14:06:34.269",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n// Example in Scala\nval rdd3 \u003d sc.parallelize(List(1, 2, 3))\n\nval rdd4 \u003d sc.parallelize(1 to 100)\n\nval mylist \u003d rdd4.glom().collect()\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-14 11:45:38.356",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371250_800737724",
+      "id": "20170330-180459_1754067389",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-08-14 11:45:38.442",
+      "dateFinished": "2018-08-14 11:45:39.385",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n2 -   By loading an external dataset from an input such as a file",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:16:22.141",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e2 - By loading an external dataset from an input such as a file\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371252_798429231",
+      "id": "20170330-180609_2069822837",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-11-02 08:16:18.050",
+      "dateFinished": "2018-11-02 08:16:18.064",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Example in PySpark (file ../data/quijote.txt)\nquijote \u003d sc.textFile(\"/data/quijote.txt\")\nprint(quijote.take(10))\n#print(quijote[1])",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-12 14:20:26.164",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371253_798044482",
+      "id": "20170330-180801_1870202936",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-10-12 14:20:26.750",
+      "dateFinished": "2018-10-12 14:20:27.657",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n// Example in Scala (file ../data/quijote.txt)\nval quijote \u003d sc.textFile(\"/data/quijote.txt\")\nquijote.take(1000).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-09 16:12:52.017",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371255_798813980",
+      "id": "20170330-180937_748754549",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-08-09 16:12:52.149",
+      "dateFinished": "2018-08-09 16:12:53.563",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Partitions\n\nSpark splits each RDD into multiple partitions, which may be computed on different nodes of the cluster\n\n-   The default number of partitions is function of the size of the cluster or the number of file blocks (for example, HDFS blocks)\n\n-   A different value can be defined when the RDD is created",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:16:27.317",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ePartitions\u003c/h3\u003e\n\u003cp\u003eSpark splits each RDD into multiple partitions, which may be computed on different nodes of the cluster\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003eThe default number of partitions is function of the size of the cluster or the number of file blocks (for example, HDFS blocks)\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eA different value can be defined when the RDD is created\u003c/p\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371257_796505486",
+      "id": "20170330-190226_713230823",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-11-02 08:16:25.741",
+      "dateFinished": "2018-11-02 08:16:25.761",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd \u003d sc.parallelize([1,2,3,4], 2)\nprint(rdd.glom().collect())\nprint(rdd.getNumPartitions())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-14 10:33:57.547",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371258_797659733",
+      "id": "20170331-172145_323923848",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-08-14 10:33:57.640",
+      "dateFinished": "2018-08-14 10:33:57.712",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval rdd \u003d sc.parallelize(List(1,2,3,4), 2)\nprintln(rdd.partitions.size)\nval parti \u003d rdd.glom().collect()",
+      "user": "anonymous",
+      "dateUpdated": "2018-07-18 11:02:47.737",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371258_797659733",
+      "id": "20170331-172209_1686674443",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-07-18 11:02:47.817",
+      "dateFinished": "2018-07-18 11:02:49.035",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Transformations\n\nOperations on RDDs that return a new RDD\n\n-   Computed on a *lazy* way.\n\n-   They typically execute a function (anonymous or not) on each of the original RDD elements.",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:16:32.246",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eTransformations\u003c/h3\u003e\n\u003cp\u003eOperations on RDDs that return a new RDD\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003eComputed on a \u003cem\u003elazy\u003c/em\u003e way.\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eThey typically execute a function (anonymous or not) on each of the original RDD elements.\u003c/p\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371259_797274984",
+      "id": "20170331-172358_2080517103",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-11-02 08:16:30.695",
+      "dateFinished": "2018-11-02 08:16:30.718",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nquijs \u003d quijote.filter(lambda l: \"Quijote\" in l)\nsanchs \u003d quijote.filter(lambda l: \"Sancho\" in l)\nquijssancs \u003d quijs.intersection(sanchs)\nprint(quijssancs.take(1000))\n#quijssancs.cache()",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 15:28:18.059",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371259_797274984",
+      "id": "20170331-172858_1569775186",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-10-12 14:22:44.949",
+      "dateFinished": "2018-10-12 14:22:49.645",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval quijs \u003d quijote.filter(l \u003d\u003e l contains \"Quijote\")\nval sanchs \u003d quijote.filter(l \u003d\u003e l contains \"Sancho\")\nval quijssancs \u003d quijs.intersection(sanchs)",
+      "user": "anonymous",
+      "dateUpdated": "2018-07-18 11:03:03.327",
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371259_797274984",
+      "id": "20170331-173335_1931016742",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-07-18 11:03:03.399",
+      "dateFinished": "2018-07-18 11:03:04.390",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Actions\n\nObtain output data from RDDs\n\n-   Return values to the driver or to the storage system\n\n-   Force the pending transformations to be applied",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:16:38.325",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eActions\u003c/h3\u003e\n\u003cp\u003eObtain output data from RDDs\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003eReturn values to the driver or to the storage system\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eForce the pending transformations to be applied\u003c/p\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371259_797274984",
+      "id": "20170331-173128_850330900",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-11-02 08:16:36.971",
+      "dateFinished": "2018-11-02 08:16:36.986",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nnqs \u003d quijssancs.count()\nprint(\"Lines with Quijote and Sancho {0}\".format(nqs))\nfor l in quijssancs.takeSample(False,10):\n    print(l)\n    ",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-14 10:32:30.535",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371260_795351240",
+      "id": "20170331-173153_816783109",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-08-14 10:32:30.661",
+      "dateFinished": "2018-08-14 10:32:33.619",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval nqs \u003d quijssancs.count()\nprintln(\"Lines with Quijote and Sancho:\"+nqs)\n\nquijssancs.takeSample(false,10).foreach(println)\nquijssancs.collect().foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-14 10:10:05.815",
+      "config": {
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371260_795351240",
+      "id": "20170331-173222_947797367",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-07-18 11:10:10.602",
+      "dateFinished": "2018-07-18 11:10:12.017",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Persistence of RDDs\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:16:43.509",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "results": {},
+        "enabled": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "fontSize": 9.0,
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ePersistence of RDDs\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256371261_794966491",
+      "id": "20170331-173916_302360408",
+      "dateCreated": "2017-10-17 16:06:11.000",
+      "dateStarted": "2018-11-02 08:16:42.371",
+      "dateFinished": "2018-11-02 08:16:42.378",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nquijote.persist\nsancho\u003dquijote.filter(lambda l: \"Sancho\" in l)\nprint(quijote.count())\n#quijote is already persisted\nprint(quijote.first())\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-12 15:04:29.658",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1534241440532_-1753168546",
+      "id": "20180814-101040_1152527789",
+      "dateCreated": "2018-08-14 10:10:40.550",
+      "dateStarted": "2018-10-12 15:04:31.514",
+      "dateFinished": "2018-10-12 15:04:32.837",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:15:01.805",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": false,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1534241515428_716968766",
+      "id": "20180814-101155_1392315914",
+      "dateCreated": "2018-08-14 10:11:55.428",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/02 - Introduction to RDDs",
+  "id": "2CUVZPV4C",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "sh:shared_process": [],
+    "pig:shared_process": [],
+    "flink:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

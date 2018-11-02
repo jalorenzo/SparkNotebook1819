@@ -1,0 +1,514 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\nPersistence and Partitioning\n----------------------",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-01 15:18:20.707",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePersistence and Partitioning\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427160_-1824511290",
+      "id": "20170331-175709_320035584",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-01 15:18:20.740",
+      "dateFinished": "2018-10-01 15:18:21.699",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Persistence\n\nIssues when reusing an RDD several times:\n\n-   Spark recalculates the RDD as well as its dependencies every time an action is executed\n-   Very costly (particularly in iterative problems)\n\nSolution\n\n-   Keep the RDD in memory and/or disk\n-   Use `cache()` or `persist()` methods\n\n#### Persistence levels (as defined in [`pyspark.StorageLevel`](http://spark.apache.org/docs/latest/api/python/pyspark.html#pyspark.StorageLevel))\n Level                | Space used  | CPU time     | Memory/Disk   | Comments\n :------------------: | :------:    | :-----:      | :-------------: | ------------------\n MEMORY_ONLY          |   High      |   Low        |     Memory   | Stores the RDD in the JVM as a non-serialised Java object. If the RDD does not fit in memory, some partitions will not be cached in memory and will be recalculated on the fly every time they are required. Default level in Java and Scala.\n MEMORY_ONLY_SER      |   Low       |   High       |     Memory   | Stores the RDD as a serialised Java object (a *byte array* per partition). Default level in Python, using [`pickle`](http://docs.python.org/2/library/pickle.html).\n MEMORY_AND_DISK      |   High      |   Medium     |     Both     | Stores the RDD in the JVM as a non-serialised Java object. If the RDD does not fit in memory, the partitions that do not fit will be spilled to disk and read from there every time they are required.\n MEMORY_AND_DISK_SER  |   Low       |   High       |     Both     | Similar to MEMORY_AND_DISK but using serialised objects.\n DISK_ONLY            |   Low       |   High       |     Disk     | Stores the RDD partitions only on disk.\n OFF_HEAP             |   Low       |   High       |   Memory     | Stores the serialised RDD using *off-heap* memory (outside the JVM\u0027s heap) which can reduce the overhead of the garbage collector.\n   \n\n\n    \n#### Persistence levels\n\n-   In Scala and Java, the default level is MEMORY\\_ONLY\n\n-   In Python, data are always serialised (by default as *pickled* objects)\n\n    - MEMORY_ONLY and MEMORY_AND_DISK levels are equivalent to MEMORY_ONLY_SER and MEMORY_AND_DISK_SER\n    - When creating the SparkContext it is possible to request a serialisation [`marshal`](https://docs.python.org/2/library/marshal.html#module-marshal) \n    \n```python\nsc \u003d SparkContext(master\u003d\"local\", appName\u003d\"Mi app\", serializer\u003dpyspark.MarshalSerializer())\n```\n    \n#### Fault tolerance\n\n-   If a node with stored data fails, the RDD is recomputed \n\n    -   Adding `_2` to the persistence level, 2 copies of the RDD are stored\n        \n#### Cache management\n\n-   LRU algorithm to manage the cache memory\n\n    -   For *only memory* levels, the old RDDs are deleted and recalculated\n    -   For *memory and disk* levels, partitions that do not fit in memory are spilled to disk\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-05 12:12:33.844",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ePersistence\u003c/h3\u003e\n\u003cp\u003eIssues when reusing an RDD several times:\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eSpark recalculates the RDD as well as its dependencies every time an action is executed\u003c/li\u003e\n  \u003cli\u003eVery costly (particularly in iterative problems)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eSolution\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eKeep the RDD in memory and/or disk\u003c/li\u003e\n  \u003cli\u003eUse \u003ccode\u003ecache()\u003c/code\u003e or \u003ccode\u003epersist()\u003c/code\u003e methods\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003ePersistence levels (as defined in \u003ca href\u003d\"http://spark.apache.org/docs/latest/api/python/pyspark.html#pyspark.StorageLevel\"\u003e\u003ccode\u003epyspark.StorageLevel\u003c/code\u003e\u003c/a\u003e)\u003c/h4\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth align\u003d\"center\"\u003eLevel \u003c/th\u003e\n      \u003cth align\u003d\"center\"\u003eSpace used \u003c/th\u003e\n      \u003cth align\u003d\"center\"\u003eCPU time \u003c/th\u003e\n      \u003cth align\u003d\"center\"\u003eMemory/Disk \u003c/th\u003e\n      \u003cth\u003eComments\u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd align\u003d\"center\"\u003eMEMORY_ONLY \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eHigh \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eLow \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eMemory \u003c/td\u003e\n      \u003ctd\u003eStores the RDD in the JVM as a non-serialised Java object. If the RDD does not fit in memory, some partitions will not be cached in memory and will be recalculated on the fly every time they are required. Default level in Java and Scala.\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd align\u003d\"center\"\u003eMEMORY_ONLY_SER \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eLow \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eHigh \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eMemory \u003c/td\u003e\n      \u003ctd\u003eStores the RDD as a serialised Java object (a \u003cem\u003ebyte array\u003c/em\u003e per partition). Default level in Python, using \u003ca href\u003d\"http://docs.python.org/2/library/pickle.html\"\u003e\u003ccode\u003epickle\u003c/code\u003e\u003c/a\u003e.\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd align\u003d\"center\"\u003eMEMORY_AND_DISK \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eHigh \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eMedium \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eBoth \u003c/td\u003e\n      \u003ctd\u003eStores the RDD in the JVM as a non-serialised Java object. If the RDD does not fit in memory, the partitions that do not fit will be spilled to disk and read from there every time they are required.\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd align\u003d\"center\"\u003eMEMORY_AND_DISK_SER \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eLow \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eHigh \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eBoth \u003c/td\u003e\n      \u003ctd\u003eSimilar to MEMORY_AND_DISK but using serialised objects.\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd align\u003d\"center\"\u003eDISK_ONLY \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eLow \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eHigh \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eDisk \u003c/td\u003e\n      \u003ctd\u003eStores the RDD partitions only on disk.\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd align\u003d\"center\"\u003eOFF_HEAP \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eLow \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eHigh \u003c/td\u003e\n      \u003ctd align\u003d\"center\"\u003eMemory \u003c/td\u003e\n      \u003ctd\u003eStores the serialised RDD using \u003cem\u003eoff-heap\u003c/em\u003e memory (outside the JVM\u0026rsquo;s heap) which can reduce the overhead of the garbage collector.\u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch4\u003ePersistence levels\u003c/h4\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003eIn Scala and Java, the default level is MEMORY_ONLY\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n    \u003cp\u003eIn Python, data are always serialised (by default as \u003cem\u003epickled\u003c/em\u003e objects)\u003c/p\u003e\n    \u003cul\u003e\n      \u003cli\u003eMEMORY_ONLY and MEMORY_AND_DISK levels are equivalent to MEMORY_ONLY_SER and MEMORY_AND_DISK_SER\u003c/li\u003e\n      \u003cli\u003eWhen creating the SparkContext it is possible to request a serialisation \u003ca href\u003d\"https://docs.python.org/2/library/marshal.html#module-marshal\"\u003e\u003ccode\u003emarshal\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class\u003d\"python\"\u003esc \u003d SparkContext(master\u003d\u0026quot;local\u0026quot;, appName\u003d\u0026quot;Mi app\u0026quot;, serializer\u003dpyspark.MarshalSerializer())\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eFault tolerance\u003c/h4\u003e\n\u003cul\u003e\n  \u003cli\u003eIf a node with stored data fails, the RDD is recomputed\n    \u003cul\u003e\n      \u003cli\u003e\n      \u003cp\u003eAdding \u003ccode\u003e_2\u003c/code\u003e to the persistence level, 2 copies of the RDD are stored\u003c/p\u003e\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eCache management\u003c/h4\u003e\n\u003cul\u003e\n  \u003cli\u003eLRU algorithm to manage the cache memory\n    \u003cul\u003e\n      \u003cli\u003eFor \u003cem\u003eonly memory\u003c/em\u003e levels, the old RDDs are deleted and recalculated\u003c/li\u003e\n      \u003cli\u003eFor \u003cem\u003ememory and disk\u003c/em\u003e levels, partitions that do not fit in memory are spilled to disk\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427161_-1824896039",
+      "id": "20170713-093945_1948393361",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-05 12:12:31.752",
+      "dateFinished": "2018-10-05 12:12:32.416",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nrdd \u003d sc.parallelize(range(1000), 10)\n\nprint(rdd.is_cached)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-09 14:51:18.082",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427161_-1824896039",
+      "id": "20170713-094004_336437297",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-09 14:51:18.579",
+      "dateFinished": "2018-10-09 14:51:49.943",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nimport pyspark\nrdd.persist(pyspark.StorageLevel.MEMORY_AND_DISK_SER_2)\nprint(rdd.is_cached)\n\nprint(\"rdd persistence level: {0} \".format(rdd.getStorageLevel()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-09 14:51:53.589",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427161_-1824896039",
+      "id": "20170713-094304_942363426",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-09 14:51:53.798",
+      "dateFinished": "2018-10-09 14:51:53.899",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nrdd2 \u003d rdd.map(lambda x: x*x)\nprint(rdd2.is_cached)\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-09 14:51:58.887",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427161_-1824896039",
+      "id": "20170713-094509_1439062241",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-09 14:51:59.066",
+      "dateFinished": "2018-10-09 14:51:59.121",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nrdd2.cache() # Default level\nprint(rdd2.is_cached)\nprint(\"rdd2 persistence level: {0}\".format(rdd2.getStorageLevel()))\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 11:48:22.571",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427162_-1823741793",
+      "id": "20170713-094528_821156405",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-02 11:48:22.648",
+      "dateFinished": "2018-10-02 11:48:23.119",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nrdd2.unpersist() # Take rdd2 out of the cache memory\nprint(rdd2.is_cached)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 11:48:46.803",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427162_-1823741793",
+      "id": "20170713-094545_1040120150",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-02 11:48:46.854",
+      "dateFinished": "2018-10-02 11:48:46.995",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Partitioning\n\nThe number of partitions is a function of the cluster size or the number of blocks of the HDFS file\n\n-   It can be adjusted when creating or operating on an RDD\n\n-   RDD parallelism derived from others depends on their parent RDDs \n\n-   Two useful functions:\n\n    -   `rdd.getNumPartitions()` returns the number of partitions of the RDD\n    -   `rdd.glom()` returns a new RDD joining the elements on each partition into a list\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-09 14:56:03.252",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ePartitioning\u003c/h3\u003e\n\u003cp\u003eThe number of partitions is a function of the cluster size or the number of blocks of the HDFS file\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003eIt can be adjusted when creating or operating on an RDD\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eRDD parallelism derived from others depends on their parent RDDs \u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n    \u003cp\u003eTwo useful functions:\u003c/p\u003e\n    \u003cul\u003e\n      \u003cli\u003e\u003ccode\u003erdd.getNumPartitions()\u003c/code\u003e returns the number of partitions of the RDD\u003c/li\u003e\n      \u003cli\u003e\u003ccode\u003erdd.glom()\u003c/code\u003e returns a new RDD joining the elements on each partition into a list\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427162_-1823741793",
+      "id": "20170713-095425_1079236707",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-09 14:56:01.247",
+      "dateFinished": "2018-10-09 14:56:01.359",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd \u003d sc.parallelize([1, 2, 3, 4, 2, 4, 1], 4)\npairs \u003d rdd.map(lambda x: (x, x))\n\nprint(\"RDD pairs \u003d {0}\".format(\n        pairs.collect()))\nprint(\"pairs partitioning: {0}\".format(\n        pairs.glom().collect()))\nprint(\"Number of partitions for pairs \u003d {0}\".format(\n        pairs.getNumPartitions()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 12:59:18.889",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427162_-1823741793",
+      "id": "20170713-121134_1597290566",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-02 12:59:19.648",
+      "dateFinished": "2018-10-02 12:59:24.877",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Reduction keeping the number of partitions\nprint(\"Reduction with 4 partitions: {0}\".format(\n        pairs.reduceByKey(lambda x, y: x+y).glom().collect()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 13:00:26.373",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427163_-1824126542",
+      "id": "20170713-121329_1233955601",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-02 13:00:27.004",
+      "dateFinished": "2018-10-02 13:00:28.500",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Reduction changing the number of partitions\nprint(\"Reduction with 2 partitions: {0}\".format(\n       pairs.reduceByKey(lambda x, y: x+y, 2).glom().collect()))",
+      "dateUpdated": "2018-10-02 13:20:31.012",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427163_-1824126542",
+      "id": "20170713-121532_944908234",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Repartitioning functions\n- `repartition(n)` returns a new RDD with exactly `n` partitions\n- `coalesce(n)` optimised version of `repartition`, allows avoiding data movement\n    - But only if you are decreasing the number of RDD partitions.\n- `partitionBy(n,[partitionFunc])` Partitioning by key, using a partitioning function (by default, a hash of the key)\n    - Only for key/value RDDs\n    - Ensures that pairs with the same key go to the same partition\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-09 15:23:43.224",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eRepartitioning functions\u003c/h4\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003erepartition(n)\u003c/code\u003e returns a new RDD with exactly \u003ccode\u003en\u003c/code\u003e partitions\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003ecoalesce(n)\u003c/code\u003e optimised version of \u003ccode\u003erepartition\u003c/code\u003e, allows avoiding data movement\n    \u003cul\u003e\n      \u003cli\u003eBut only if you are decreasing the number of RDD partitions.\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003epartitionBy(n,[partitionFunc])\u003c/code\u003e Partitioning by key, using a partitioning function (by default, a hash of the key)\n    \u003cul\u003e\n      \u003cli\u003eOnly for key/value RDDs\u003c/li\u003e\n      \u003cli\u003eEnsures that pairs with the same key go to the same partition\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427163_-1824126542",
+      "id": "20170713-121625_1707697947",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-09 15:23:40.844",
+      "dateFinished": "2018-10-09 15:23:40.929",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npairs5 \u003d pairs.repartition(5)\nprint(\"pairs5 with {0} partitions: {1}\".format(\n        pairs5.getNumPartitions(),\n        pairs5.glom().collect()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 13:43:49.734",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427163_-1824126542",
+      "id": "20170713-121710_1067916706",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-02 13:43:50.342",
+      "dateFinished": "2018-10-02 13:43:53.053",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npairs2 \u003d pairs5.coalesce(2)\nprint(\"pairs2 with {0} partitions: {1}\".format(\n        pairs2.getNumPartitions(),\n        pairs2.glom().collect()))\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 13:45:03.015",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427163_-1824126542",
+      "id": "20170713-121842_1672703622",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-02 13:45:03.127",
+      "dateFinished": "2018-10-02 13:45:03.571",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\npairs_key \u003d pairs2.partitionBy(3)\nprint(\"Partition by key ({0} partitions): {1}\".format(\n        pairs_key.getNumPartitions(),\n        pairs_key.glom().collect())) ",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-09 15:38:26.718",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256427164_-1826050286",
+      "id": "20170713-122127_970392255",
+      "dateCreated": "2017-10-17 16:07:07.000",
+      "dateStarted": "2018-10-02 13:45:06.455",
+      "dateFinished": "2018-10-02 13:45:07.225",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/06 - Persistence and Partitioning",
+  "id": "2CX5G6BK3",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

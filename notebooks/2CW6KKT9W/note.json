@@ -1,0 +1,847 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\nWorking with files\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 13:50:47.061",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eWorking with files\u003c/h1\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435774_-940727743",
+      "id": "20170331-175736_1251486193",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 13:50:43.912",
+      "dateFinished": "2018-10-02 13:50:44.368",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Supported filesystems\n-   Like Hadoop, Spark supports different filesystems: local, HDFS, Amazon S3\n\n    -   In general, it supports any data source that can be read with Hadoop\n\n-   It can access relational or noSQL databases\n\n    -   MySQL, Postgres, etc. using JDBC\n    -   Apache Hive, HBase, Cassandra or Elasticsearch\n\n### Supported file formats\n\n-   Spark can access different file types:\n\n    -   Plain text, CSV, sequence files, JSON, *protocol buffers* and *object files*\n        -   It supports compressed files",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 14:14:52.290",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 371.0,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eSupported filesystems\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003e\n    \u003cp\u003eLike Hadoop, Spark supports different filesystems: local, HDFS, Amazon S3\u003c/p\u003e\n    \u003cul\u003e\n      \u003cli\u003e\n      \u003cp\u003eIn general, it supports any data source that can be read with Hadoop\u003c/p\u003e\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003e\n    \u003cp\u003eIt can access relational or noSQL databases\u003c/p\u003e\n    \u003cul\u003e\n      \u003cli\u003eMySQL, Postgres, etc. using JDBC\u003c/li\u003e\n      \u003cli\u003eApache Hive, HBase, Cassandra or Elasticsearch\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eSupported file formats\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003eSpark can access different file types:\n    \u003cul\u003e\n      \u003cli\u003e\n        \u003cp\u003ePlain text, CSV, sequence files, JSON, \u003cem\u003eprotocol buffers\u003c/em\u003e and \u003cem\u003eobject files\u003c/em\u003e\u003c/p\u003e\n        \u003cul\u003e\n          \u003cli\u003eIt supports compressed files\u003c/li\u003e\n        \u003c/ul\u003e\n      \u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435775_-941112492",
+      "id": "20170715-113754_1944635351",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 14:14:47.969",
+      "dateFinished": "2018-10-02 14:14:48.053",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Examples with text files\n\nIn the `../data/books` directory there is a collection of compressed text files.",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 14:15:09.024",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eExamples with text files\u003c/h4\u003e\n\u003cp\u003eIn the \u003ccode\u003e../data/books\u003c/code\u003e directory there is a collection of compressed text files.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435785_-958810941",
+      "id": "20170715-113905_678503000",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 14:15:00.405",
+      "dateFinished": "2018-10-02 14:15:00.466",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n# Input files\nls ../data/books",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 14:15:13.976",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435785_-958810941",
+      "id": "20170715-113950_1612698555",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 14:15:14.067",
+      "dateFinished": "2018-10-02 14:15:14.265",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Functions for reading and writing text files\n\n\n- `sc.textFile(file/directory_name)` It creates an RDD from the lines of one or several text files \n    - If a directory is specified, all files inside will be read, creating a partition per file\n    - Files can be compressed, also in different formats (gz, bz2,...)\n    - Wildcards can be specified in the file name\n- `sc.wholeTextFiles(file/directory_name)` Reads the file and returns a key/value RDD\n    - key: File absolute path\n    - value: The whole text of the file\n- `rdd.saveAsTextFile(output_directory)` Stores the RDD in text format in the specified directory\n    - Creates a file for each partition of rdd\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 14:16:16.337",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eFunctions for reading and writing text files\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003esc.textFile(file/directory_name)\u003c/code\u003e It creates an RDD from the lines of one or several text files\n    \u003cul\u003e\n      \u003cli\u003eIf a directory is specified, all files inside will be read, creating a partition per file\u003c/li\u003e\n      \u003cli\u003eFiles can be compressed, also in different formats (gz, bz2,\u0026hellip;)\u003c/li\u003e\n      \u003cli\u003eWildcards can be specified in the file name\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003esc.wholeTextFiles(file/directory_name)\u003c/code\u003e Reads the file and returns a key/value RDD\n    \u003cul\u003e\n      \u003cli\u003ekey: File absolute path\u003c/li\u003e\n      \u003cli\u003evalue: The whole text of the file\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003erdd.saveAsTextFile(output_directory)\u003c/code\u003e Stores the RDD in text format in the specified directory\n    \u003cul\u003e\n      \u003cli\u003eCreates a file for each partition of rdd\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435786_-957656694",
+      "id": "20170715-120747_1605706098",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 14:16:06.015",
+      "dateFinished": "2018-10-02 14:16:06.044",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Reads all files in the directory \n# and creates an RDD with their lines\nlines \u003d sc.textFile(\"../data/books\")\n\n# Creates a partition per input file \nprint(\"Number of partitions of the RDD lines \u003d {0}\".format(\n       lines.getNumPartitions()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 14:30:54.081",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435786_-957656694",
+      "id": "20170715-114108_2081955705",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 14:30:54.697",
+      "dateFinished": "2018-10-02 14:30:55.484",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Gets the words using the split method (split uses a space as default delimiter)\nwords \u003d lines.flatMap(lambda x: x.split())\nprint(\"Number of partitions of the RDD words \u003d {0}\".format(\n       words.getNumPartitions()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 14:35:50.130",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435786_-957656694",
+      "id": "20170717-165549_824338572",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 14:35:50.194",
+      "dateFinished": "2018-10-02 14:35:50.229",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Repartitioning the RDD in 4 partitions       \nwords2 \u003d words.coalesce(4)\nprint(\"Number of partitions of the RDD words2 \u003d {0}\".format(\n       words2.getNumPartitions()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 14:37:55.232",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435787_-958041443",
+      "id": "20170717-165554_447956162",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 14:37:55.320",
+      "dateFinished": "2018-10-02 14:37:55.584",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Takes a random sample from the words\nprint(words2.takeSample(False, 10))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 14:41:28.488",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435787_-958041443",
+      "id": "20170717-165556_1006378560",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 14:38:36.399",
+      "dateFinished": "2018-10-02 14:38:45.990",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Saves the RDD words as several output files \n# (a file per partition)\nwords2.saveAsTextFile(\"file:///tmp/outputtxt\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:04:45.365",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435787_-958041443",
+      "id": "20170717-165558_378255199",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:04:45.420",
+      "dateFinished": "2018-10-02 15:04:55.239",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n# output files\nls -l /tmp/outputtxt\nhead /tmp/outputtxt/part-00002",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:04:57.371",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435788_-959965188",
+      "id": "20170715-114521_158888604",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:04:57.472",
+      "dateFinished": "2018-10-02 15:04:57.564",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Reads the files and returns a key/value RDD\n# key-\u003efile name, value-\u003ecomplete file\nprdd \u003d sc.wholeTextFiles(\"../data/books/p*.gz\")\nprint(\"Number of partitions of the RDD prdd \u003d {0}\\n\".format(\n       prdd.getNumPartitions()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:05:02.473",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435788_-959965188",
+      "id": "20170715-114646_1618556398",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:05:02.546",
+      "dateFinished": "2018-10-02 15:05:02.664",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Gets a key/value list\n# key-\u003efile name, value-\u003enumber of words\nmylist \u003d prdd.mapValues(lambda x: len(x.split())).collect()\n\nfor book in mylist:\n    print(\"The book {0:14s} has {1:6d} words\".format(\n           book[0].split(\"/\")[-1], book[1]))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:05:07.601",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435789_-960349937",
+      "id": "20170717-165713_317028187",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:05:07.703",
+      "dateFinished": "2018-10-02 15:05:09.053",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Sequence files\nFlat files used in Hadoop consisting of binary key/value pairs\n\n-   Their elements implement the [`Writable`](https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/io/Writable.html) interface",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:42:11.771",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eSequence files\u003c/h3\u003e\n\u003cp\u003eFlat files used in Hadoop consisting of binary key/value pairs\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eTheir elements implement the \u003ca href\u003d\"https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/io/Writable.html\"\u003e\u003ccode\u003eWritable\u003c/code\u003e\u003c/a\u003e interface\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435789_-960349937",
+      "id": "20170715-122923_832495602",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-30 16:42:09.686",
+      "dateFinished": "2018-10-30 16:42:09.783",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd \u003d sc.parallelize([(\"a\",2), (\"b\",5), (\"a\",8)], 2)\n\n# We save the key/value RDD as a Sequence file\nrdd.saveAsSequenceFile(\"file:///tmp/sequenceoutdir2\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:05:18.681",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435790_-959195690",
+      "id": "20170717-161348_41044279",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:05:18.791",
+      "dateFinished": "2018-10-02 15:05:19.162",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\necho \u0027output directory\u0027\nls -l /tmp/sequenceoutdir2\necho \u0027Attempt to read one of the files\u0027\ncat /tmp/sequenceoutdir2/part-00000\n#echo\n#echo  \u0027Read the file using Hadoop\u0027\n#/opt/hadoop/bin/hdfs dfs -text /tmp/sequenceoutdir2/part-00001",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:05:27.231",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435790_-959195690",
+      "id": "20170717-162316_1566090953",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:05:27.346",
+      "dateFinished": "2018-10-02 15:05:27.406",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# We read the file in another RDD\nrdd2 \u003d sc.sequenceFile(\"file:///tmp/sequenceoutdir2\", \n                       \"org.apache.hadoop.io.Text\", \n                       \"org.apache.hadoop.io.IntWritable\")\n                       \nprint(\"Content of the RDD {0}\".format(rdd2.collect()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:09:45.394",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435790_-959195690",
+      "id": "20170717-162352_788726266",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:09:45.438",
+      "dateFinished": "2018-10-02 15:09:45.749",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Hadoop input/output formats\nSpark can interact with any file format supported by Hadoop\n- It supports the \"old\" and \"new\" APIs\n- It supports accessing other storage types (not files), e.g. HBase or MongoDB, using `saveAsHadoopDataSet` and/or `saveAsNewAPIHadoopDataSet`\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:18:59.084",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eHadoop input/output formats\u003c/h3\u003e\n\u003cp\u003eSpark can interact with any file format supported by Hadoop\u003cbr/\u003e- It supports the \u0026ldquo;old\u0026rdquo; and \u0026ldquo;new\u0026rdquo; APIs\u003cbr/\u003e- It supports accessing other storage types (not files), e.g. HBase or MongoDB, using \u003ccode\u003esaveAsHadoopDataSet\u003c/code\u003e and/or \u003ccode\u003esaveAsNewAPIHadoopDataSet\u003c/code\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435790_-959195690",
+      "id": "20170717-161743_1876544820",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:18:53.229",
+      "dateFinished": "2018-10-02 15:18:53.465",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# We save the key/value RDD as a Hadoop text file (TextOutputFormat)\nrdd.saveAsNewAPIHadoopFile(\"file:///tmp/hadoopfileoutdir\", \n                            \"org.apache.hadoop.mapreduce.lib.output.TextOutputFormat\",\n                            \"org.apache.hadoop.io.Text\",\n                            \"org.apache.hadoop.io.IntWritable\")\n                            ",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:20:21.464",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435791_-959580439",
+      "id": "20170717-161937_2014632436",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:20:21.579",
+      "dateFinished": "2018-10-02 15:20:22.709",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\necho \u0027Output directory\u0027\nls -l /tmp/hadoopfileoutdir\ncat /tmp/hadoopfileoutdir/part-r-00001",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:20:49.665",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435791_-959580439",
+      "id": "20170717-162028_1424644460",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:20:49.777",
+      "dateFinished": "2018-10-02 15:20:49.944",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# We read it as a Hadoop key/value file (KeyValueTextInputFormat)\nrdd3 \u003d sc.newAPIHadoopFile(\"file:///tmp/hadoopfileoutdir\", \n                          \"org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat\",\n                          \"org.apache.hadoop.io.Text\",\n                          \"org.apache.hadoop.io.IntWritable\")\n                          \nprint(\"Content of the RDD {0}\".format(rdd3.collect()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-02 15:22:50.800",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435791_-959580439",
+      "id": "20170717-162107_429179099",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-02 15:22:50.915",
+      "dateFinished": "2018-10-02 15:22:51.892",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Assignment 1\n\nUsing the apat63_99.txt file, create a set of Sequence files and store them in the apat63_99-seq directory. The key in these files must be the country (\"COUNTRY\" field) and the value a string comprised by the patent number (\"PATENT\" field) and the granting year (\"GYEAR\" field) separated by a comma. For example, a line of these files may be:\n\n\u003e BE \u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; 3070801,1963",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:43:25.955",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eAssignment 1\u003c/h3\u003e\n\u003cp\u003eUsing the apat63_99.txt file, create a set of Sequence files and store them in the apat63_99-seq directory. The key in these files must be the country (\u0026ldquo;COUNTRY\u0026rdquo; field) and the value a string comprised by the patent number (\u0026ldquo;PATENT\u0026rdquo; field) and the granting year (\u0026ldquo;GYEAR\u0026rdquo; field) separated by a comma. For example, a line of these files may be:\u003c/p\u003e\n\u003cblockquote\u003e\n  \u003cp\u003eBE \u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; 3070801,1963\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435791_-959580439",
+      "id": "20170717-162720_379645653",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-30 16:43:24.714",
+      "dateFinished": "2018-10-30 16:43:24.793",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "dateUpdated": "2017-10-17 16:07:15.000",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435792_-949192219",
+      "id": "20170719-193150_192336955",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Assignment 2\n\nWrite a Spark program that, from the cite75_99.txt and apat63_99-seq files obtains, for each patent, the country, the year and the number of citations.\n\nUse a *full outer join* to join, using the common field (the number of patent) the RDDs associated to both files.\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:43:34.531",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eAssignment 2\u003c/h3\u003e\n\u003cp\u003eWrite a Spark program that, from the cite75_99.txt and apat63_99-seq files obtains, for each patent, the country, the year and the number of citations.\u003c/p\u003e\n\u003cp\u003eUse a \u003cem\u003efull outer join\u003c/em\u003e to join, using the common field (the number of patent) the RDDs associated to both files.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435805_-954193954",
+      "id": "20170723-112254_1990355459",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "dateStarted": "2018-10-30 16:43:33.358",
+      "dateFinished": "2018-10-30 16:43:33.423",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "dateUpdated": "2017-10-17 16:07:15.000",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256435806_-953039708",
+      "id": "20170723-120314_1080217243",
+      "dateCreated": "2017-10-17 16:07:15.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/07 - Working with files",
+  "id": "2CW6KKT9W",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

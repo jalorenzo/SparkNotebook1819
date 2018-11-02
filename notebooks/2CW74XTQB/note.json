@@ -1,0 +1,228 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\nNumeric RDDs \n--------------\n\nDescriptive statistics operations provided by Spark\n\n  Method              |  Description                       \n  ------------------- | ---------------------------------- \n  stats()             | Statistics overview            \n  mean()              | Average of the elements\n  sum(), max(), min() | Total, maximum value and minimum value\n  variance()          | Variance of the elements\n  sampleVariance()    | Variance of the elements, computed for a sample\n  stdev()             | Standard deviation\n  sampleStdev()       | Sample standard deviation\n  histogram()         | Histogram",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-05 09:41:17.765",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eNumeric RDDs\u003c/h2\u003e\n\u003cp\u003eDescriptive statistics operations provided by Spark\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eMethod \u003c/th\u003e\n      \u003cth\u003eDescription\u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003estats() \u003c/td\u003e\n      \u003ctd\u003eStatistics overview\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003emean() \u003c/td\u003e\n      \u003ctd\u003eAverage of the elements\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003esum(), max(), min() \u003c/td\u003e\n      \u003ctd\u003eTotal, maximum value and minimum value\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003evariance() \u003c/td\u003e\n      \u003ctd\u003eVariance of the elements\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003esampleVariance() \u003c/td\u003e\n      \u003ctd\u003eVariance of the elements, computed for a sample\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003estdev() \u003c/td\u003e\n      \u003ctd\u003eStandard deviation\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003esampleStdev() \u003c/td\u003e\n      \u003ctd\u003eSample standard deviation\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003ehistogram() \u003c/td\u003e\n      \u003ctd\u003eHistogram\u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256416321_659042860",
+      "id": "20170710-102649_699397831",
+      "dateCreated": "2017-10-17 16:06:56.000",
+      "dateStarted": "2018-10-05 09:41:16.862",
+      "dateFinished": "2018-10-05 09:41:17.086",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nimport numpy as np\n\n# Consider an RDD of random data with normal distribution\nnrdd \u003d sc.parallelize(np.random.normal(size\u003d10000)).cache()\n\n# Statistics overview\nsts \u003d nrdd.stats()\n\nprint(\"Statistics overview:\\n {0}\\n\".format(sts))",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-02 08:23:47.412",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0,
+        "title": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256416322_660197106",
+      "id": "20170710-103912_570261895",
+      "dateCreated": "2017-10-17 16:06:56.000",
+      "dateStarted": "2018-10-01 14:20:57.931",
+      "dateFinished": "2018-10-01 14:21:20.889",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom math import fabs\n\n# Filter outliers\nstddev \u003d sts.stdev()\navg \u003d sts.mean()\n\nfrdd \u003d nrdd.filter(lambda x: fabs(x - avg) \u003c 3*stddev).cache()\n\nprint(\"Number of outliers: {0}\".format(sts.count() - frdd.count()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-01 14:22:44.642",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256416323_659812357",
+      "id": "20170711-122431_39387483",
+      "dateCreated": "2017-10-17 16:06:56.000",
+      "dateStarted": "2018-10-01 14:22:46.431",
+      "dateFinished": "2018-10-01 14:22:49.929",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n#import base64\nimport matplotlib.pyplot as plt; plt.rcdefaults()\nimport matplotlib.pyplot as plt\nimport StringIO\n\ndef show(p):\n    img \u003d StringIO.StringIO()\n    p.savefig(img, format\u003d\u0027svg\u0027)\n    img.seek(0)\n    print \"%html \u003cdiv style\u003d\u0027width:600px\u0027\u003e\" + img.buf + \"\u003c/div\u003e\"\n\n# Get a histogram with 10 groups\nx,y \u003d frdd.histogram(10)\n\n# Clean the plot\nplt.gcf().clear()\n\nplt.bar(x[:-1], y, width\u003d0.6)\nplt.xlabel(u\u0027Values\u0027)\nplt.ylabel(u\u0027Number of occurrences\u0027)\nplt.title(u\u0027Histogram\u0027)\n\nshow(plt)",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-01 14:28:17.641",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256416323_659812357",
+      "id": "20170711-124622_1013514896",
+      "dateCreated": "2017-10-17 16:06:56.000",
+      "dateStarted": "2018-10-01 14:28:19.391",
+      "dateFinished": "2018-10-01 14:28:23.910",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### ASSIGNMENT 1: Number or patents of a country per year \n\nFrom the information in the apat63_99.txt file obtain and represent, per granting year (\"GYEAR\"), the number of patents whose first inventor comes from the USA (\"US\" code in \"COUNTRY\"). Use a bar plot. Obtain also the average number of granted patents.",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:34:06.609",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eASSIGNMENT 1: Number or patents of a country per year\u003c/h3\u003e\n\u003cp\u003eFrom the information in the apat63_99.txt file obtain and represent, per granting year (\u0026ldquo;GYEAR\u0026rdquo;), the number of patents whose first inventor comes from the USA (\u0026ldquo;US\u0026rdquo; code in \u0026ldquo;COUNTRY\u0026rdquo;). Use a bar plot. Obtain also the average number of granted patents.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256416323_659812357",
+      "id": "20170711-124640_1982602394",
+      "dateCreated": "2017-10-17 16:06:56.000",
+      "dateStarted": "2018-10-30 16:34:03.541",
+      "dateFinished": "2018-10-30 16:34:03.574",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nimport numpy as np\nimport matplotlib.pyplot as plt; plt.rcdefaults()\nimport matplotlib.pyplot as plt\nimport StringIO\n\ndef show(p):\n    img \u003d StringIO.StringIO()\n    p.savefig(img, format\u003d\u0027svg\u0027)\n    img.seek(0)\n    print \"%html \u003cdiv style\u003d\u0027width:1200px\u0027\u003e\" + img.buf + \"\u003c/div\u003e\"\n    \n# Read data in rdd format\n# rdd \u003d ....\n\n\n\n# Obtain an rdd which gives, for the \"US\" patents, the number of \n# patents per year (year, number_of_patents) sorted by year\n#yearNum \u003d ....\n\n# Calculate the average of the number of patents\n#media \u003d ....\n\n#print(\"Patents average between year {0} and {1} \u003d {2}\".format(....))\n\n\n# Create the graph\n# Get the years as a list\n#years \u003d ....\n# Get the number of patents as a list\n#numPats \u003d ....\n\n# Comment out to plot the graph\n#plt.gcf().clear() \n#yearsRange \u003d np.arange(len(years))\n#plt.bar(yearsRange, numPats, align\u003d\u0027center\u0027)\n#plt.xticks(yearsRange, years, fontsize\u003d10, rotation\u003d90)\n#plt.ylabel(\"N Patents\")\n#show(plt)\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-01 14:40:59.446",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256416323_659812357",
+      "id": "20170713-123223_1862299352",
+      "dateCreated": "2017-10-17 16:06:56.000",
+      "dateStarted": "2018-10-01 14:40:59.477",
+      "dateFinished": "2018-10-01 14:41:01.244",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/05 - Numeric RDDs",
+  "id": "2CW74XTQB",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "sh:shared_process": [],
+    "pig:shared_process": [],
+    "flink:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

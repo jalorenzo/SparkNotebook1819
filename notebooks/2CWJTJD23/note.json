@@ -1,0 +1,1624 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# RDDs of key/value pairs (aka *Pair RDDs*)\n\n-   Data types heavily used on Big Data (MapReduce)\n\n-   Spark provides special operation to handle them",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-09 16:00:41.817",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eRDDs of key/value pairs (aka \u003cem\u003ePair RDDs\u003c/em\u003e)\u003c/h1\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003cp\u003eData types heavily used on Big Data (MapReduce)\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eSpark provides special operation to handle them\u003c/p\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401686_-513317687",
+      "id": "20170708-183641_1609794276",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-10-09 16:00:39.196",
+      "dateFinished": "2018-10-09 16:00:39.252",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Creation of *Pair RDDs*\nKey/value RDDs can be created from a list of tuples, from another RDD or from a zip of two RDDs",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:30:30.938",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eCreation of \u003cem\u003ePair RDDs\u003c/em\u003e\u003c/h3\u003e\n\u003cp\u003eKey/value RDDs can be created from a list of tuples, from another RDD or from a zip of two RDDs\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401694_-516395678",
+      "id": "20170708-183831_1559169513",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:30:28.886",
+      "dateFinished": "2018-08-28 16:30:29.060",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   From a list of tuples",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:31:08.540",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003eFrom a list of tuples\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401694_-516395678",
+      "id": "20170708-183842_742913676",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:31:07.535",
+      "dateFinished": "2018-08-28 16:31:07.564",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nprdd \u003d sc.parallelize([(\u0027a\u0027,2), (\u0027b\u0027,5), (\u0027a\u0027,3)])\nprint(prdd.collect())\n\nprdd \u003d sc.parallelize(zip([\u0027a\u0027, \u0027b\u0027, \u0027c\u0027], range(3)))\nprint(prdd.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:31:16.934",
+      "config": {
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401695_-516780427",
+      "id": "20170708-184001_776040480",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:31:17.006",
+      "dateFinished": "2018-08-28 16:31:18.611",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval prdd \u003d sc.parallelize(List((\u0027a\u0027,2), (\u0027b\u0027,5), (\u0027a\u0027,3)))\nprdd.collect()\n\nval prdd \u003d sc.parallelize(List(\u0027a\u0027, \u0027b\u0027, \u0027c\u0027) zip (1 to 3).toList)\nprdd.collect()",
+      "dateUpdated": "2017-10-17 16:06:41.000",
+      "config": {
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401695_-516780427",
+      "id": "20170708-184056_21645820",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   From another RDD",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:31:33.961",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003eFrom another RDD\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401696_-531016137",
+      "id": "20170708-184200_538389667",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:31:32.554",
+      "dateFinished": "2018-08-28 16:31:32.587",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Example using a file\n# For each line we get a tuple, the first element being the first word of the line\n# and the second one the whole line\nlinesrdd \u003d sc.textFile(\"../data/quijote.txt\", use_unicode\u003dFalse)\nprdd \u003d linesrdd.map(lambda x: (x.split(\" \")[0], x))\n\nprint(\u0027Pair (1st word, line): {0}\\n\u0027.format(prdd.takeSample(False, 1)))\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:32:43.483",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401696_-531016137",
+      "id": "20170708-185030_1311976050",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:32:43.631",
+      "dateFinished": "2018-08-28 16:32:45.575",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# Using keyBy(f): Creates tuples of the RDD elements using f to obtain the key.\nnrdd \u003d sc.parallelize(xrange(2,5))\nprdd \u003d nrdd.keyBy(lambda x: x*x)\n\nprint(prdd.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:33:59.306",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401697_-531400886",
+      "id": "20170708-185123_228837373",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:33:59.371",
+      "dateFinished": "2018-08-28 16:33:59.632",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# zipWithIndex(): Zips the RDD with its elements\u0027 indexes.\nrdd \u003d sc.parallelize([\u0027a\u0027, \u0027b\u0027, \u0027c\u0027, \u0027d\u0027, \u0027e\u0027, \u0027f\u0027, \u0027g\u0027, \u0027h\u0027], 3)\nprdd \u003d rdd.zipWithIndex()\nprint(rdd.glom().collect())\n\nprint(prdd.collect())\n\n# This method starts a Spark job when the RDD has more than one partition",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:40:12.882",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401698_-530246639",
+      "id": "20170708-185551_1592986113",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:40:12.949",
+      "dateFinished": "2018-08-28 16:40:13.735",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# zipWithUniqueId(): Zips the RDD with unique identifiers (long) for each element.\n# Elements in the k-th partition get the k, n+k, 2*n+k,... ids, being n \u003d number of partitions\n# It does not start a Spark job\nrdd \u003d sc.parallelize([\u0027a\u0027, \u0027b\u0027, \u0027c\u0027, \u0027d\u0027, \u0027e\u0027, \u0027f\u0027, \u0027g\u0027, \u0027h\u0027], 3)\nprint(\"RDD partitions: {0}\".format(rdd.glom().collect()))\nprdd \u003d rdd.zipWithUniqueId()\n\nprint(prdd.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:42:59.719",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401698_-530246639",
+      "id": "20170708-185951_183844766",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:42:59.784",
+      "dateFinished": "2018-08-28 16:43:00.050",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n- From a zip of two RDDs\n    - RDDs must have the same number of partitions and the same number of elements on each partition",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-28 16:45:38.424",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003eFrom a zip of two RDDs\n    \u003cul\u003e\n      \u003cli\u003eRDDs must have the same number of partitions and the same number of elements on each partition\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401699_-530631388",
+      "id": "20170708-190101_1648829592",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-28 16:45:38.439",
+      "dateFinished": "2018-08-28 16:45:38.487",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd1 \u003d sc.parallelize(xrange(0, 5), 2)\nrdd2 \u003d sc.parallelize(range(1000, 1005), 2)\nprdd \u003d rdd1.zip(rdd2)\n\nprint(prdd.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2017-10-19 17:03:34.000",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401700_-532555132",
+      "id": "20170708-190142_1751232574",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2017-10-19 17:03:34.000",
+      "dateFinished": "2017-10-19 17:03:35.000",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Transformations on a single RDD containing key/value pairs\nOn a single RDD key/value we can perform key-based aggregation transformations as well as transformations affecting keys or values",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 14:35:14.824",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eTransformations on a single RDD containing key/value pairs\u003c/h3\u003e\n\u003cp\u003eOn a single RDD key/value we can perform key-based aggregation transformations as well as transformations affecting keys or values\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401706_-533324630",
+      "id": "20170708-190217_1787358861",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 14:25:08.241",
+      "dateFinished": "2018-08-31 14:25:10.363",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Aggregation transformations",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 14:35:13.431",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eAggregation transformations\u003c/h4\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401708_-535633123",
+      "id": "20170708-190411_1670560456",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 14:35:09.395",
+      "dateFinished": "2018-08-31 14:35:09.441",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   `reduceByKey(func)`/`foldByKey(func)`\n    -  Return a RD, grouping all values associated to the same key according to the `func` function\n    -  Similar to `reduce` and `fold` on simple RDDs",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 14:38:11.593",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003ereduceByKey(func)\u003c/code\u003e/\u003ccode\u003efoldByKey(func)\u003c/code\u003e\n    \u003cul\u003e\n      \u003cli\u003eReturn a RD, grouping all values associated to the same key according to the \u003ccode\u003efunc\u003c/code\u003e function\u003c/li\u003e\n      \u003cli\u003eSimilar to \u003ccode\u003ereduce\u003c/code\u003e and \u003ccode\u003efold\u003c/code\u003e on simple RDDs\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401709_-536017872",
+      "id": "20170708-190425_1242806742",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 14:38:11.594",
+      "dateFinished": "2018-08-31 14:38:11.677",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom operator import add\nprdd   \u003d sc.parallelize([(\u0027a\u0027, 2), (\u0027b\u0027, 5), (\u0027a\u0027, 8), (\u0027b\u0027, 6), (\u0027b\u0027, 2)]).cache()\nredrdd \u003d prdd.reduceByKey(add)\n\nprint(redrdd.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:03:19.275",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401712_-524860154",
+      "id": "20170708-190521_817452515",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:03:19.361",
+      "dateFinished": "2018-08-31 15:03:22.830",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   `groupByKey()` groups values associated to the same key\n    - Operation very costly on communications\n    - It is usually better to use a reduction operation\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:01:17.072",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003egroupByKey()\u003c/code\u003e groups values associated to the same key\n    \u003cul\u003e\n      \u003cli\u003eOperation very costly on communications\u003c/li\u003e\n      \u003cli\u003eIt is usually better to use a reduction operation\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401712_-524860154",
+      "id": "20170708-190611_1823281727",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:01:17.074",
+      "dateFinished": "2018-08-31 15:01:17.105",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ngrouprdd \u003d prdd.groupByKey()\n\nprint(grouprdd.collect())\nprint\n\nmylist \u003d [(k, list(v)) for k, v in grouprdd.collect()]\nprint(mylist)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:03:31.835",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401714_-524090656",
+      "id": "20170708-190636_136764461",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:03:31.900",
+      "dateFinished": "2018-08-31 15:03:34.651",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n- `combineByKey(createCombiner(func1), mergeValue(func2), mergeCombiners(func3))`\n    - General method for key-based aggregation, similar to `aggregate`\n    - It requires three functions:\n\n     1.  `createCombiner` when going through the elements of each partition, if we find a new key, a new cummulator is created and initialised with `func1`\n\n     2.  `mergeValue` merges values of each key in each partition using `func2`\n\n     3.  `mergeCombiners` merges the results from the different partitions using `func3`\n\n- The values of the output RDD can have a type different from the values of the input RDD.",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 14:56:16.211",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\n    \u003cp\u003e\u003ccode\u003ecombineByKey(createCombiner(func1), mergeValue(func2), mergeCombiners(func3))\u003c/code\u003e\u003c/p\u003e\n    \u003cul\u003e\n      \u003cli\u003eGeneral method for key-based aggregation, similar to \u003ccode\u003eaggregate\u003c/code\u003e\u003c/li\u003e\n      \u003cli\u003eIt requires three functions:\u003c/li\u003e\n    \u003c/ul\u003e\n    \u003col\u003e\n      \u003cli\u003e\n      \u003cp\u003e\u003ccode\u003ecreateCombiner\u003c/code\u003e when going through the elements of each partition, if we find a new key, a new cummulator is created and initialised with \u003ccode\u003efunc1\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e\n      \u003cli\u003e\n      \u003cp\u003e\u003ccode\u003emergeValue\u003c/code\u003e merges values of each key in each partition using \u003ccode\u003efunc2\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e\n      \u003cli\u003e\n      \u003cp\u003e\u003ccode\u003emergeCombiners\u003c/code\u003e merges the results from the different partitions using \u003ccode\u003efunc3\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e\n    \u003c/ol\u003e\n  \u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003eThe values of the output RDD can have a type different from the values of the input RDD.\u003c/p\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401714_-524090656",
+      "id": "20170708-190731_2066132843",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 14:56:15.134",
+      "dateFinished": "2018-08-31 14:56:15.201",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n# For each key, it obtains a tuple with the addition and the number of values \nsumCount \u003d prdd.combineByKey(\n                            (lambda x: (x, 1)),\n                            (lambda x, y: (x[0]+y, x[1]+1)),\n                            (lambda x, y: (x[0]+y[0], x[1]+y[1])))\n\nprint(sumCount.collect())\n\n# With this RDD, we obtain the average value for each key\nm \u003d sumCount.mapValues(lambda v: float(v[0])/v[1])\nprint(m.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-01 12:40:44.857",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401715_-524475405",
+      "id": "20170708-191016_646406872",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-10-01 12:41:01.251",
+      "dateFinished": "2018-10-01 12:41:59.847",
+      "status": "ERROR",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Transformations on keys or values\n-   `keys()` returns a RDD with the keys\n-   `values()` returns a RDD with the values\n-   `sortByKey()` returns a RDD key/value with the keys sorted\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:07:46.887",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eTransformations on keys or values\u003c/h4\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003ekeys()\u003c/code\u003e returns a RDD with the keys\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003evalues()\u003c/code\u003e returns a RDD with the values\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003esortByKey()\u003c/code\u003e returns a RDD key/value with the keys sorted\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401720_-527938145",
+      "id": "20170708-191117_1364066341",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:07:45.995",
+      "dateFinished": "2018-08-31 15:07:46.029",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nprint(\"RDD complete: {0:\u003e46s}\".format(prdd.collect()))\nprint(\"RDD with the keys: {0:\u003e25s}\".format(prdd.keys().collect()))\nprint(\"RDD with the values: {0:\u003e18}\".format(prdd.values().collect()))\nprint(\"RDD the sorted keys: {0}\".format(prdd.sortByKey().collect()))",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:08:54.486",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401730_-542558604",
+      "id": "20170708-191447_687177311",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:08:54.553",
+      "dateFinished": "2018-08-31 15:08:59.181",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   `mapValues(func)` returns a RDD applying a function on its values\n-   `flatMapValues(func)` returns a RDD applying a function on its values and \"flattening\" the output.",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:11:00.632",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003emapValues(func)\u003c/code\u003e returns a RDD applying a function on its values\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003eflatMapValues(func)\u003c/code\u003e returns a RDD applying a function on its values and \u0026ldquo;flattening\u0026rdquo; the output.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401731_-542943353",
+      "id": "20170708-191517_765834006",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:10:58.753",
+      "dateFinished": "2018-08-31 15:10:58.821",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nmapv \u003d prdd.mapValues(lambda x: (x, 10*x))\nprint(mapv.collect())\n\nfmapv \u003d prdd.flatMapValues(lambda x: (x, 10*x))\nprint(fmapv.collect())",
+      "dateUpdated": "2017-10-17 16:06:41.000",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401732_-544867097",
+      "id": "20170708-191556_1332053395",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Transformations on two RDDs containing key/value pairs\nCombine two RDDs of type key/value to obtain a third RDD.",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:33:43.048",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eTransformations on two RDDs containing key/value pairs\u003c/h3\u003e\n\u003cp\u003eCombine two RDDs of type key/value to obtain a third RDD.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401732_-544867097",
+      "id": "20170708-191725_164724394",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:33:40.492",
+      "dateFinished": "2018-08-31 15:33:40.541",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n`join`/`leftOuterJoin`/`rightOuterJoin`/`fullOuterJoin` perform inner/outer/full joins on the two RDDs",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:33:29.537",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003ccode\u003ejoin\u003c/code\u003e/\u003ccode\u003eleftOuterJoin\u003c/code\u003e/\u003ccode\u003erightOuterJoin\u003c/code\u003e/\u003ccode\u003efullOuterJoin\u003c/code\u003e perform inner/outer/full joins on the two RDDs\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401732_-544867097",
+      "id": "20170708-191917_1589064380",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:33:28.707",
+      "dateFinished": "2018-08-31 15:33:28.773",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd1 \u003d sc.parallelize([(\"a\", 2), (\"b\", 5), (\"a\", 8)]).cache()\nrdd2 \u003d sc.parallelize([(\"c\", 7), (\"a\", 1)]).cache()\n\nrdd3 \u003d rdd1.join(rdd2)\n\nprint(rdd3.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:39:37.067",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401733_-545251846",
+      "id": "20170708-191952_936041351",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:39:37.179",
+      "dateFinished": "2018-08-31 15:39:50.497",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd3 \u003d rdd1.leftOuterJoin(rdd2)\n\nprint(rdd3.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:40:30.203",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401733_-545251846",
+      "id": "20170708-192016_18816027",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:40:30.303",
+      "dateFinished": "2018-08-31 15:40:34.446",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd3 \u003d rdd1.rightOuterJoin(rdd2)\n\nprint(rdd3.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:40:48.517",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401733_-545251846",
+      "id": "20170708-192145_997237677",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:40:48.672",
+      "dateFinished": "2018-08-31 15:40:51.069",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd3 \u003d rdd1.fullOuterJoin(rdd2)\n\nprint(rdd3.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 15:41:00.471",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401734_-544097599",
+      "id": "20170708-192331_430218468",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 15:41:00.535",
+      "dateFinished": "2018-08-31 15:41:02.801",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   `subtractByKey` deletes elements with a key present in another RDD",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 16:03:04.040",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003esubtractByKey\u003c/code\u003e deletes elements with a key present in another RDD\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401734_-544097599",
+      "id": "20170708-192349_567995858",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 16:02:42.114",
+      "dateFinished": "2018-08-31 16:02:42.269",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd3 \u003d rdd1.subtractByKey(rdd2)\n\nprint(rdd3.collect())",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 16:03:46.610",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401734_-544097599",
+      "id": "20170708-192432_1212352299",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 16:03:46.724",
+      "dateFinished": "2018-08-31 16:04:01.336",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   `cogroup` groups the elements that share the same key in both RDDs",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 16:05:46.994",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003ecogroup\u003c/code\u003e groups the elements that share the same key in both RDDs\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401734_-544097599",
+      "id": "20170708-192517_337338238",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 16:05:21.175",
+      "dateFinished": "2018-08-31 16:05:21.235",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nrdd3 \u003d rdd1.cogroup(rdd2)\n\nprint(rdd3.collect())\n\nmap \u003d rdd3.mapValues(lambda v: [list(l) for l in v]).collectAsMap()\n\nprint(map)",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 16:05:49.100",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401735_-544482348",
+      "id": "20170708-192726_248584895",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 16:05:49.222",
+      "dateFinished": "2018-08-31 16:05:55.056",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Actions on RDDs key/value\nOn RDDs key/value we can apply the same actions as for simple RDDs, as well as some additional ones.\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 16:07:29.891",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eActions on RDDs key/value\u003c/h3\u003e\n\u003cp\u003eOn RDDs key/value we can apply the same actions as for simple RDDs, as well as some additional ones.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401736_-546406093",
+      "id": "20170708-192747_13302338",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 16:07:29.891",
+      "dateFinished": "2018-08-31 16:07:30.067",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   `collectAsMap()` obtains a RDD as a map",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 16:14:45.276",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003ecollectAsMap()\u003c/code\u003e obtains a RDD as a map\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401736_-546406093",
+      "id": "20170708-193400_1679400807",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 16:13:20.322",
+      "dateFinished": "2018-08-31 16:13:22.369",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nprdd \u003d sc.parallelize([(\"a\", 7), (\"b\", 5), (\"a\", 8)]).cache()\n\nrddMap \u003d prdd.collectAsMap()\n\nprint(rddMap)",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-27 13:21:31.391",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401736_-546406093",
+      "id": "20170709-175449_337839348",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-09-27 13:21:34.155",
+      "dateFinished": "2018-09-27 13:21:37.364",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   `countByKey()` returns a map with the number of occurrences of each key",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 16:15:17.244",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003ecountByKey()\u003c/code\u003e returns a map with the number of occurrences of each key\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401737_-546790842",
+      "id": "20170708-193258_247625966",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 16:15:10.987",
+      "dateFinished": "2018-08-31 16:15:11.066",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ncountMap \u003d prdd.countByKey()\n\nprint(countMap)",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-27 13:21:44.078",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401737_-546790842",
+      "id": "20170708-193311_1223398973",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-09-27 13:21:44.537",
+      "dateFinished": "2018-09-27 13:21:45.594",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n-   `lookup(key)` returns a list with the values associated to a given key",
+      "user": "anonymous",
+      "dateUpdated": "2018-08-31 16:26:05.019",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003elookup(key)\u003c/code\u003e returns a list with the values associated to a given key\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401738_-545636595",
+      "id": "20170708-193446_1844221283",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-08-31 16:26:00.383",
+      "dateFinished": "2018-08-31 16:26:00.656",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nlistA \u003d prdd.lookup(\u0027a\u0027)\n\nprint(listA)",
+      "dateUpdated": "2017-10-17 16:06:41.000",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401738_-545636595",
+      "id": "20170708-193653_1520387021",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### ASSIGNMENT 1: Count people by age\n\nPlot a barplot showing of number of people (y-axis) per age (x-axis) using the information in the /data/people.txt file\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:30:04.407",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eASSIGNMENT 1: Count people by age\u003c/h3\u003e\n\u003cp\u003ePlot a barplot showing of number of people (y-axis) per age (x-axis) using the information in the /data/people.txt file\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1540916994942_-1268074719",
+      "id": "20181030-162954_406655928",
+      "dateCreated": "2018-10-30 16:29:54.946",
+      "dateStarted": "2018-10-30 16:30:04.415",
+      "dateFinished": "2018-10-30 16:30:04.779",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nimport matplotlib.pyplot as plt; plt.rcdefaults()\nimport matplotlib.pyplot as plt\nimport StringIO\n\ndef show(p):\n    img \u003d StringIO.StringIO()\n    p.savefig(img, format\u003d\u0027svg\u0027)\n    img.seek(0)\n    print \"%html \u003cdiv style\u003d\u0027width:600px\u0027\u003e\" + img.buf + \"\u003c/div\u003e\"\n\n# Your code here....\n\nplt.xlabel(u\u0027Age\u0027)\nplt.ylabel(u\u0027Number of occurrences\u0027)\nplt.title(u\u0027Histogram\u0027)\n\nshow(plt)\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:32:00.372",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1540917008688_157983049",
+      "id": "20181030-163008_21888577",
+      "dateCreated": "2018-10-30 16:30:08.688",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### ASSIGNMENT 2: Obtain the number of received citations \n\nWrite a PySpark program that obtains, from the cite75_99.txt file, the number of citations received by each patent. \n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:32:39.173",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eASSIGNMENT 2: Obtain the number of received citations\u003c/h3\u003e\n\u003cp\u003eWrite a PySpark program that obtains, from the cite75_99.txt file, the number of citations received by each patent.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401739_-546021344",
+      "id": "20170708-193717_1780377850",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-10-30 16:32:37.442",
+      "dateFinished": "2018-10-30 16:32:37.510",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "dateUpdated": "2017-10-17 16:06:41.000",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401739_-546021344",
+      "id": "20170711-120920_1650903483",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### ASSIGNMENT 3: Average number of citations claims by country\n\nWrite a PySpark program that, from the apat63_99.txt file, obtains the average number of patent claims for each country.\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-30 16:32:34.296",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eASSIGNMENT 3: Average number of citations claims by country\u003c/h3\u003e\n\u003cp\u003eWrite a PySpark program that, from the apat63_99.txt file, obtains the average number of patent claims for each country.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401740_-547945088",
+      "id": "20170710-172245_301565319",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "dateStarted": "2018-10-30 16:32:31.190",
+      "dateFinished": "2018-10-30 16:32:31.251",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "dateUpdated": "2017-10-17 16:06:41.000",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1508256401740_-547945088",
+      "id": "20170710-182207_475616381",
+      "dateCreated": "2017-10-17 16:06:41.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark course/04 - Working with key-value pairs",
+  "id": "2CWJTJD23",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
