@@ -7,7 +7,7 @@
 # Build and boot the container in background
 docker-compose up --build &
 
-sleep 120
+sleep 350
 
 # Check that the directory has already been created
 ASSETS="/zeppelin/webapps/webapp/assets"
