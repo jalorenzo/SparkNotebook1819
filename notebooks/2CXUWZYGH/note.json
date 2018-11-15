@@ -1578,6 +1578,34 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "%pyspark \n# Example: compute the average of an RDD\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-11-15 12:04:04.560",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1542283425484_-481513137",
+      "id": "20181115-120345_847644335",
+      "dateCreated": "2018-11-15 12:03:45.488",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "text": "%pyspark\nl \u003d [1, 2, 3, 4, 5, 6, 7, 8]\nrdd \u003d sc.parallelize(l)\n\n# acc is a three-element tuple (List, Double, Int)\n# The squared elements of RDD are concatenated in the first element of acc (list). \n# The second element accumulates the RDD elements after a multiplication\n# The third one stores the number of elements of the RDD\nseqOp  \u003d (lambda acc, val: (acc[0]+[val*val], \n                            acc[1]*val, \n                            acc[2]+1))\n# For each partition, a new tuple of type acc is created\n# In this operation, the three elements of the tuples are combined\ncombOp \u003d (lambda acc1, acc2: (acc1[0]+acc2[0], \n                              acc1[1]*acc2[1], \n                              acc1[2]+acc2[2]))\n                              \na \u003d rdd.aggregate(([], 1., 0), seqOp, combOp) \n\nprint(a)\n\nTest.assertEquals(a[1], 8.*7.*6.*5.*4.*3.*2.*1.)\nTest.assertEquals(a[2], len(l))\n",
       "user": "anonymous",
       "dateUpdated": "2018-08-28 15:17:35.573",
@@ -2095,9 +2123,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\ngdfgdfgdfg",
+      "text": "%pyspark\n",
       "user": "anonymous",
-      "dateUpdated": "2018-11-15 11:48:15.483",
+      "dateUpdated": "2018-10-30 15:36:16.732",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
